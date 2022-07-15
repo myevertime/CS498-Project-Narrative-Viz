@@ -16,7 +16,7 @@
 <button id = "b2" type="button">2022</button>
 	
 async function init() {
-    const data = await d3.csv('https://github.com/myevertime/narrative-viz/data/ds_salaries.csv');
+    const data = await d3.csv('https://myevertime.github.io/narrative-viz/data/ds_salaries.csv');
     d3.select('body')
       .selectAll('p')
       .data(data)
