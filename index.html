@@ -11,7 +11,7 @@
 <body onload='init()'>
 <script>
 async function init() {
-    const data = await d3.csv('https://github.com/myevertime/narrative-viz/blob/main/data/ds_salaries.csv');
+    const data = await d3.csv('https://github.com/myevertime/narrative-viz/data/ds_salaries.csv');
     d3.select('body')
       .selectAll('p')
       .data(data)
