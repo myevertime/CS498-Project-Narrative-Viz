@@ -10,6 +10,11 @@
 
 <body onload='init()'>
 <script>
+	
+<button id = "b0" type="button">2020</button>
+<button id = "b1" type="button">2021</button>
+<button id = "b2" type="button">2022</button>
+	
 async function init() {
     const data = await d3.csv('https://github.com/myevertime/narrative-viz/data/ds_salaries.csv');
     d3.select('body')
@@ -20,29 +25,6 @@ async function init() {
       .html(function(d,i) {return 'item ' + d.item});
 }
 </script>
-
-<div class="first-div">
-    <div class="row">
-        <div class="col-xs-6" align="left">
-            <h3>Research on Crimes in Boston</h3>
-            <a href="/html/visualization.html" target="_blank">Narrative Visualization by Harsh Panchal</a>
-        </div>
-        <div class="col-xs-2">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-3">
-            <p></p>
-            <button id = "b0" type="button" class="btn btn-default" onclick="loadScene0()">2020</button>
-            <button id = "b1" type="button" class="btn btn-default" onclick="loadScene1()">2021</button>
-			<button id = "b2" type="button" class="btn btn-default" onclick="loadScene2()">2022</button>
-        </div>
-    </div>
-	<div id="chart-div" style="position: relative; width: 900px; height: 500px;">
-                <svg id="chart-id" class="chart" style="position: absolute; z-index: 1; top: -150; left: 350; opacity: 100">
-                </svg>
-            </div>
-</div>    
     
 </body>
 </html>
