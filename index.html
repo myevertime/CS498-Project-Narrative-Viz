@@ -49,7 +49,7 @@
 
         node.append("title")
             .text(function(d) {
-                return d.Name + ": " + d.Count;
+                return d.jobTitle + ": " + d.2020;
             });
 
         node.append("circle")
@@ -64,7 +64,7 @@
             .attr("dy", ".2em")
             .style("text-anchor", "middle")
             .text(function(d) {
-                return d.data.Name.substring(0, d.r / 3);
+                return d.data.jobTitle.substring(0, d.r / 3);
             })
             .attr("font-family", "sans-serif")
             .attr("font-size", function(d){
@@ -76,7 +76,7 @@
             .attr("dy", "1.3em")
             .style("text-anchor", "middle")
             .text(function(d) {
-                return d.data.Count;
+                return d.data.2020;
             })
             .attr("font-family",  "Gill Sans", "Gill Sans MT")
             .attr("font-size", function(d){
