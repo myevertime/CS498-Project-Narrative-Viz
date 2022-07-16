@@ -1,64 +1,24 @@
-<!DOCTYPE html>
-<script src = 'http://d3js.org/d3.v5.min.js'></script>
-
-<style>
-.chart rect {fill: steelblue;}
-#tooltip {
-    opacity : 0;
-    position : absolute;
-    text-align : center;
-    width : 60px;
-    height : 40px;
-    background: white;
-    border : 0px;
-}
-</style>
-
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Narrative Visualization</title>
-</head>
-
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<style> rect {fill: lightblue; stroke: black; }</style>
 <body>
-<p>This is the paragraph </p>
-
-<svg class="chart"></svg>
-<div id="tooltip"></div>
-
+<svg width=300 height=300>
+</svg>
 <script>
-var width = 120, height = 300;
-
-//const data = await d3.csv('https://myevertime.github.io/narrative-viz/data/ds_salaries.csv');
 var data = [4,8,15,16,23,42];
-document.getElementById("data").innerHTML = data;
-
-var x = d3.scaleLinear().domain([0,6]).range([0,width]);
+var width = 200;
+var height = 200;
+var margin = 50;
+var x = d3.scaleBand().domain([0,1,2,3,4,5]).range([0,width]);
 var y = d3.scaleLinear().domain([0,42]).range([height,0]);
 
-var tooltip = d3.select("#tooltip");
 
-d3.select(".chart")
-.attr("width", width)
-.attr("height", height)
-.selectAll('rect')
-.data(data)
-.enter().append('rect')
-.attr("width", 19)
-.attr("height", function(d) {return height - y(d); })
-.attr("x", function(d,i) {return x(i); })
-.attr("y", function(d) {return y(d); })
-.on("mouseover", function(d,i) {
-    tooltip.style("opacity", 1)
-        .style("left",(d3.event.pageX)+"px")
-        .style("top",(d3.event.pageY)+"px")
-        .html("Item #" + i + "is" + d);
-})
-.on("mouseout", function() {tooltip.style("opacity", 0) })
+d3.select("svg").append("g").attr("transform","translate("+margin+","+margin+")").selectAll().data(data).enter().append('rect').attr('x', (d,i) => x(i)).attr('y', (d) => y(d)).attr("width", x.bandwidth()).attr("height", (d) => y(0) - y(d));
+
+d3.select("svg").append("g").attr("transform","translate("+margin+","+margin+")").call(d3.axisLeft(y));
+
+d3.select("svg").append("g").attr("transform","translate("+margin+","+(height+margin)+")").call(d3.axisBottom(x));
 
 </script>
-<p>This is the paragraph2 </p>
-
 </body>
 </html>
