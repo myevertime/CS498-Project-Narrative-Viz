@@ -11,7 +11,7 @@
     <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 
-<style> circle {fill: lightblue; stroke: black;} </style>
+<style> </style>
     
 <body>
     <p>here is a change</p>
@@ -33,14 +33,11 @@
             .attr("class", "bubble");
 
         var nodes = d3.hierarchy(dataset)
-            .sum(function(d) { return d.Count; });
+            .sum(function(d) { return d.2020; });
 
         var node = svg.selectAll(".node")
             .data(bubble(nodes).descendants())
             .enter()
-            .filter(function(d){
-                return  !d.children
-            })
             .append("g")
             .attr("class", "node")
             .attr("transform", function(d) {
