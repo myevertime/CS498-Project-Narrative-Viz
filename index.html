@@ -1,38 +1,22 @@
 <!DOCTYPE html>
-<script src='https://d3js.org/d3.v5.min.js'></script>
-<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Science Salary</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1"/>
+
+    <title>Data Science Salary</title>
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </head>
 
 <style> circle {fill: lightblue; stroke: black;} </style>
-<body onload='init()'>
-<svg width=300 height=300>
-</svg>
+    
+<body>
+
 <script>
-async function init() {
     //const data = await d3.csv('https://myevertime.github.io/narrative-viz/data/ds_salaries.csv');
-    //var width = 200;
-    //var height = 200;
-    //var margin = 50;
-    //var x = d3.scaleLog().domain([10, 150]).range([0,width]);
-    //var y = d3.scaleLog().domain([10, 150]).range([height,0]);
-    
-    //d3.select("svg").append("g").attr("transform","translate("+margin+","+margin+")")
-    //    .selectAll().data(data).enter().append('circle')
-    //    .attr('cx', function(d,i){return x(d.work_year);})
-    //    .attr('cy', function(d,i){return y(d.remote_ratio);})
-    //    .attr("r", function(d,i){return +d.salary_in_usd+2;});
-    
-    //d3.select("svg").append("g").attr("transform","translate("+margin+","+margin+")")
-    //    .call(d3.axisLeft(y).tickValues([10, 20, 50, 100]).tickFormat(d3.format("~s")));
-    
-    //d3.select("svg").append("g").attr("transform","translate("+margin+","+(height+margin)+")")
-    //    .call(d3.axisBottom(x).tickValues([10, 20, 50, 100]).tickFormat(d3.format("~s")));
-    
     dataset = {
             "children": [{"Name":"Olives","Count":4319},
                 {"Name":"Tea","Count":4159},
@@ -124,7 +108,7 @@ async function init() {
 
         d3.select(self.frameElement)
             .style("height", diameter + "px");
-}
+
 </script>
 </body>
 </html>
