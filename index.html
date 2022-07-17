@@ -53,7 +53,7 @@ svg {
   cursor: pointer;
 }
 </style>
-<svg width="960" height="960" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
+//<svg width="960" height="960" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
 
 <body>
 <div id="chart1">
@@ -80,9 +80,14 @@ svg {
 <script>
     document.getElementById("Years").click();
 	
-    var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
+    //var svg = d3.select("svg"),
+    //width = +svg.attr("width"),
+    //height = +svg.attr("height");
+    
+    var svg = d3.select("body")
+    .append("svg").attr("id","bubble")
+    .attr("width", 600)
+    .attr("height", 600)
 
     var div = d3.select("body").append("div")	
     .attr("class", "tooltip")				
