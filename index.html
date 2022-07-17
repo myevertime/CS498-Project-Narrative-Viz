@@ -100,9 +100,13 @@ svg {
     var pack = d3.pack()
     .size([width-150, height])
     .padding(1.5);
-    
-    d3.csv('https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv', function(d) {
-  	d.value = +d["2020"];
+
+    Year = "2020"
+    File = "data/job_salary_agg_" + YEAR + ".csv"
+    //'https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv'
+
+    d3.csv(File, function(d) {
+  	d.value = +d["salary"];
   	d.job_title = d["jobTitle"]
  	return d;
 	}, 
