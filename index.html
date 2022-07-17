@@ -57,7 +57,7 @@ svg {
 
 <body>
 <div id="chart1">
-  <input id="Years"
+  <input id="defaultYear"
 	 name="updateButton1" 
            	type="button" autofocus
 		class="yearsbutton"		   
@@ -78,7 +78,8 @@ svg {
 <p id = "Type" hidden>Type</p>
 
 <script>
-    document.getElementById("Years").click();
+    //Automatically select 2020
+    document.getElementById("defaultYear").click();
 	
     //var svg = d3.select("svg"),
     width = 600
