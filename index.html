@@ -82,8 +82,8 @@ svg {
     document.getElementById("defaultYear").click();
 	
     //var svg = d3.select("svg"),
-    width = 600
-    height = 600
+    width = 1000
+    height = 800
     
     var svg = d3.select("body")
     .append("svg").attr("id","bubble")
@@ -133,7 +133,6 @@ svg {
     	.enter().append("g")
       	.attr("class", "node")
       	.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
- 
   
   	node.append("circle")
       	.attr("id", function(d) { return d.id; })
