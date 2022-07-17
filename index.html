@@ -81,13 +81,13 @@ svg {
     document.getElementById("Years").click();
 	
     //var svg = d3.select("svg"),
-    //width = +svg.attr("width"),
-    //height = +svg.attr("height");
+    width = 600
+    height = 600
     
     var svg = d3.select("body")
     .append("svg").attr("id","bubble")
-    .attr("width", 600)
-    .attr("height", 600)
+    .attr("width", width)
+    .attr("height", height)
 
     var div = d3.select("body").append("div")	
     .attr("class", "tooltip")				
