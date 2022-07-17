@@ -135,7 +135,7 @@ svg {
   
   	node.append("circle")
       	.attr("id", function(d) { return d.id; })
-      	.attr("r", function(d) { return d.value * 0.0005; }) //d.r;
+      	.attr("r", function(d) { return d.value * 0.0003; }) //d.r;
 	.style("fill", function(d) { return color(d.data.job_title); })
       	.on("mouseover", function(d) {		
     	div.transition()		
@@ -162,6 +162,7 @@ svg {
      
   
    	node.append("text")
+	.attr("text-anchor", "middle")
       	.text(function(d) {
      	if (d.data.value > 0){
        	return d.data.job_title;
