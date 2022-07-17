@@ -111,7 +111,7 @@ svg {
 	console.log(data);
 
 	var color = d3.scaleOrdinal()
-  	.domain(data.map(function(d){ return d.job_title;}))
+  	.domain(data.map(function(d){ return d.value;}))
   	.range(['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
   	'#ffe9a8','#b9bfe3','#fddaec','#cccccc']);
 	
@@ -155,7 +155,7 @@ svg {
   
    	node.append("text")
       	.text(function(d) {
-     	if (d.data.value > 0){
+     	if (d.data.value > 89000){
        	return d.data.job_title;
      	}
      	return "";});
