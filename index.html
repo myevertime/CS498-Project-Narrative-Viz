@@ -16,6 +16,23 @@
 <body>
 
 <script>
+    var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+  
+    svg.append("text")
+    .attr("x", 100)   
+    .attr("y", 20 )
+    .attr("dy", "3.5em" )
+    .attr("text-anchor", "start")  
+    .style("font-size", "28px")  
+  	.style("font-weight", "bold")
+    .text("DATA SCIENCE SALARY IN 2020")
+
+    var pack = d3.pack()
+    .size([width-150, height])
+    .padding(1.5);
+    
     d3.csv('https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv', function(error, data) {
         console.log(error);
 	console.log(data);
