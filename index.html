@@ -89,16 +89,17 @@ svg {
   	data.forEach(function(d, i) {
     	console.log(d.value);
     	node.transition().duration(duration).delay(i * duration)
-        .attr("r", d.value);});
+        .attr("r", d.value);
+	});
 
-    	div.html(d.data.job_title + “: <br>“+d.data.value  )	
-      	.style(“left”, (d3.event.pageX) + “px”)		
-     	 .style(“top”, (d3.event.pageY - 28) + “px”);	
+    	div.html(d.data.job_title + ": <br>"+d.data.value)	
+      	.style("left", (d3.event.pageX) + "px")		
+     	.style("top", (d3.event.pageY - 28) + "px");	
   	})					
-    	.on(“mouseout”, function(d) {		
+    	.on("mouseout", function(d) {		
     	div.transition()		
       	.duration(500)		
-      	.style(“opacity”, 0);	
+      	.style("opacity", 0);	
   	});
      
   
