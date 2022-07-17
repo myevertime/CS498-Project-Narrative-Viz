@@ -28,15 +28,65 @@ svg {
     border-radius: 8px;			
     pointer-events: none;			
   }
+
+.yearsbutton { 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.yearsbutton:focus {
+  background-color: #ad0052;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
 <svg width="960" height="960" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
 
 <body>
+<div id="chart1">
+  <input id="Years"
+	 name="updateButton1" 
+           	type="button" autofocus
+		class="yearsbutton"		   
+           	value="2020" />
+		   
+	<input name="updateButton2" 
+           type="button" 
+	   class="yearsbutton"
+           value="2021" />
+		   
+	<input name="updateButton3" 
+           type="button"
+	   class="yearsbutton"
+           value="2022" 
+           />
+</div>
+<p id = "Band" hidden>Band</p>
+<p id = "shortBand" hidden>shortBand</p>
 
 <script>
+    document.getElementById("Years").click();
+	
     var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
+
+    var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
   
     svg.append("text")
     .attr("x", 100)   
