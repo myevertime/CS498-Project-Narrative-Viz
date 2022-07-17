@@ -35,7 +35,7 @@
     .size([width-150, height])
     .padding(1.5);
     
-    d3.csv('https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv', , function(d) {
+    d3.csv('https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv', function(d) {
   	d.value = +d["2020"];
   	d.job_title = d["jobTitle"]
  	return d;
