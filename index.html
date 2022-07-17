@@ -12,21 +12,6 @@
 </head>
 
 <style>
-svg {
- font: 16px"Avenir";}
-  
-div.tooltip {	
-    position: absolute;			
-    text-align: center;			
-    width: 60px;					
-    height: 45px;					
-    padding: 2px;				
-    font: 12px sans-serif;		
-    background: lightsteelblue;	
-    border: 0px;		
-    border-radius: 8px;			
-    pointer-events: none;}
-	
 </style>
 <svg width="960" height="960" font-family="sans-serif" font-size="10" text-anchor="middle"></svg>
 
@@ -73,11 +58,11 @@ div.tooltip {
   	node.append("circle")
       	.attr("id", function(d) { return d.id; })
       	.attr("r", function(d) { return d.r; })
-      	.style("fill", function(d) { return color(d.data.job_title); })
       	.on("mouseover", function(d) {		
     	div.transition()		
       	.duration(200)		
       	.style("opacity", .9);	
+      	//.style("fill", function(d) { return color(d.data.job_title); })
     
       	var duration = 300;
   	data.forEach(function(d, i) {
@@ -85,17 +70,6 @@ div.tooltip {
     	node.transition().duration(duration).delay(i * duration)
         .attr("r", d.value);});
      
-    
-    	div.html(d.data.job_title + ": <br>"+d.data.value  )	
-      	.style("left", (d3.event.pageX) + "px")		
-     	 .style("top", (d3.event.pageY - 28) + "px");	
-  	})					
-    	.on("mouseout", function(d) {		
-    	div.transition()		
-      	.duration(500)		
-      	.style("opacity", 0);	
-  	});
-
   
    	node.append("text")
       	.text(function(d) {
