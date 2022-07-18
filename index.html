@@ -56,18 +56,20 @@ svg {
 .button-1:focus {
   background-color: #EA4C89; //background-color: #F082AC;
 }
-
+.center {
+text-align: center;
+}
 </style>
 
 <body>
 <div id='introduction'>
       <p style="text-align:center;"><img src="image/free-icon-data-analysis-1643996.png" alt="icon image" style="height:50px;"></p>
-      <h2 style="text-align:center">TOP SALARY JOB IN DATA SCIENCE SINCE 2020</h2>
+      <h2 style="text-align:center">SALARY INFORMATION OF DATA SCIENTISTS</h2>
 </div>
 <div id='information'>
      <p style="text-align:center;"> This dashboard is based on survey that </p>
 </div>
-<div id="Years">
+<div class="center">
   <input id="default"
 	 name="updateButton1" 
            	type="button" autofocus
@@ -138,9 +140,9 @@ svg {
 		svg.append("text")
 		.attr("x", 10)   //100
 		.attr("y", 40 ) //20
-		.style("font-size", "20px")  
+		.style("font-size", "15px")  
 		.style("font-weight", "bold")
-		.text("DATA SCIENCE SALARY IN 2020")
+		.text("TOP 10 SALARY JOB TITLES")
 		.attr("text-anchor", "start")
 		//.attr("dy", "3.5em" )  
 
