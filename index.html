@@ -59,6 +59,11 @@ svg {
 .center {
 text-align: center;
 }
+$(".button-1").click(function(){ // when any button is clicked
+   $("button-1").removeClass("active"); //delete all "active" classes from all buttons
+   $(this).addClass("active"); //assign the "active" class only to the one that was clicked
+   return false;
+}
 </style>
 
 <body>
