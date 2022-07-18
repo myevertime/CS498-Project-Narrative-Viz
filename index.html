@@ -20,7 +20,7 @@ svg {
     position: absolute;			
     text-align: center;			
     width: 200px;					
-    height: 50px;					
+    height: 30px;					
     padding: 2px;				
     font: 12px sans-serif;		
     background: lightsteelblue;	
@@ -141,29 +141,29 @@ svg {
   
   	node.append("circle")
       	.attr("id", function(d) { return d.id; })
-      	.attr("r", function(d) { return d.value * 0.0003; }) //d.r;
+      	.attr("r", function(d) { return d.r; }) //d.r;
 	.style("fill", function(d) { return color(d.data.job_title); })
       	.on("mouseover", function(d) {		
-    	div.transition()		
-      	.duration(200)		
-      	.style("opacity", .9);
+    		div.transition()		
+      		.duration(200)		
+      		.style("opacity", .9);
       	
     
-      	var duration = 300;
-  	data.forEach(function(d, i) {
-    	console.log(d.value);
-    	node.transition().duration(duration).delay(i * duration)
-        .attr("r", d.value);
-	});
+      		var duration = 300;
+  		data.forEach(function(d, i) {
+    			console.log(d.value);
+    			node.transition().duration(duration).delay(i * duration)
+        		.attr("r", d.value * 0.0003);
+		});
 
-    	div.html(d.data.job_title + ": <br>"+d.data.value)	
-      	.style("left", (d3.event.pageX) + "px")		
-     	.style("top", (d3.event.pageY - 28) + "px");	
+    		div.html(d.data.job_title + ": <br>"+d.data.value)	
+      		.style("left", (d3.event.pageX) + "px")		
+     		.style("top", (d3.event.pageY - 28) + "px");	
   	})					
     	.on("mouseout", function(d) {		
-    	div.transition()		
-      	.duration(500)		
-      	.style("opacity", 0);	
+    		div.transition()		
+      		.duration(500)		
+      		.style("opacity", 0);	
   	});
      
   
