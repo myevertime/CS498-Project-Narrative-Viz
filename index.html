@@ -107,17 +107,17 @@ text-align: center;
     document.getElementById("2020").click();
 
     function findYear(id){
-    	year = document.getElementById(id).value;
-	document.getElementById(id).click();
+	    year = document.getElementById(id).value;
+	    document.getElementById(year).click();
     }
 	
     function showDatabyLevel(){
-	document.getElementById(year).click();
-	showData(year);
+	    document.getElementById(year).click();
+	    showData(year);
     }
 
     function showData(year) {
-
+	document.getElementById(year).click();
 	//document.getElementById("L1").style.display = 'inline';
 	
 	var level = document.getElementById('exp-levels').value;
