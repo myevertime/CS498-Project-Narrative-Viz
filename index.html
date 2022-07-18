@@ -109,7 +109,15 @@ text-align: center;
 	//document.getElementById("L1").style.display = 'inline';
 	
 	var level = document.getElementById('exp-levels').value;
-
+	if (year == "2020"){
+		var color_lst = ["#ABD3DB", "#C2E6DF", "#D1EBD8", "#E5F5DC", "#FFFFE1", "#F2D0D9", "#F2F2F2", "#B8C6D9", "#8596A6", "#F2D9D0"]
+	}
+	else if (year == "2021"){
+		var color_lst = ['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#b9bfe3','#fddaec','#cccccc']
+	}
+	else {
+		var color_lst = ["#A9B5D9", "#F2A477", "#F29472", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"]
+	}
 	File = "data/job_salary_agg_" + year + ".csv"
     	//'https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv'
 	
@@ -152,8 +160,7 @@ text-align: center;
 		
 		var color = d3.scaleOrdinal()
 		.domain(data.map(function(d){ return d.value;}))
-		.range(['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
-		'#ffe9a8','#b9bfe3','#fddaec','#cccccc']);
+		.range(color_lst);
 
 		var root = d3.hierarchy({children: data})
 		.sum(function(d) { return d.value; })
