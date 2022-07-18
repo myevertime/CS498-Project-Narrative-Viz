@@ -66,31 +66,34 @@ svg {
       <h2 style="text-align:center">TOP SALARY JOB IN DATA SCIENCE SINCE 2020</h2>
 </div>
 <div id='information'>
-     <p style="text-align:center;> This dashboard is based on survey that ...</p>
+     <p style="text-align:center;"> This dashboard is based on survey that </p>
 </div>
 <div id="charts">
   <input id="default"
 	 name="updateButton1" 
            	type="button" autofocus
 		class="button-1"	   
-           	value="SHOW 2020" />
+           	value="SHOW 2020"
+	 	onclick="showData('2020')" />
 		   
 	<input name="updateButton2" 
            type="button" 
 	   class="button-1"
-           value="SHOW 2021" />
+           value="SHOW 2021"
+	   onclick="showData('2021')" />
 		   
 	<input name="updateButton3" 
            type="button"
 	   class="button-1"
-           value="SHOW 2022" />
+           value="SHOW 2022"
+	   onclick="showData('2022')" />
 	
 </div>
 <p id = "Year" hidden>Year</p>
-<p id = "Type" hidden>Type</p>
+<p id = "Level" hidden>Level</p>
 
 <div class="filter">
-	<label for="exp-levels">Choose a dog name:</label>
+	<label for="exp-levels">Choose an experiment level:</label>
 	<select name="exp-levels" id="exp-levels">
     	<option value="all">All</option>
   	<option value="EN">Entry-level/Junior</option>
@@ -103,128 +106,141 @@ svg {
 <script>
     document.getElementById("default").click();
 	
-    //var svg = d3.select("svg"),
-    width = 800
-    height = 600
-    
-    var svg = d3.select("body")
-    .append("svg").attr("id","bubble")
-    .attr("width", width)
-    .attr("height", height)
+    function SetUp() {
+	var year = document.getElementById("Year").innerHTML;
+	showData(year);
+    }
+    function showData(year) {
 
-    var div = d3.select("body").append("div")	
-    .attr("class", "tooltip")				
-    .style("opacity", 0);
-  
-    svg.append("text")
-    .attr("x", 10)   //100
-    .attr("y", 40 ) //20
-    .style("font-size", "20px")  
-    .style("font-weight", "bold")
-    .text("DATA SCIENCE SALARY IN 2020")
-    .attr("text-anchor", "start")
-    //.attr("dy", "3.5em" )  
+	//document.getElementById("L1").style.display = 'inline';
+	
+	document.getElementById('exp-levels').value = level;
 
-    var pack = d3.pack()
-    .size([width-150, height])
-    .padding(1.5);
+	var year = document.getElementById("Year").innerHTML;
+	File = "data/job_salary_agg_" + year + ".csv"
+    	//'https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv'
+	
 
-    Year = "2020"
-    File = "data/job_salary_agg_" + Year + ".csv"
-    //'https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv'
-
-    d3.csv(File, function(d) {
-  	d.value = +d["salary"];
-  	d.job_title = d["jobTitle"]
- 	return d;
+    	d3.csv(File, function(d) {
+  		d.value = +d["salary"];
+  		d.job_title = d["jobTitle"]
+ 		return d;
 	}, 
 	function(error, data) {
-        console.log(error);
-	console.log(data);
+		console.log(error);
+		
+		d3.selectAll("svg").remove();
 
-	var color = d3.scaleOrdinal()
-  	.domain(data.map(function(d){ return d.value;}))
-  	.range(['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
-  	'#ffe9a8','#b9bfe3','#fddaec','#cccccc']);
-	
-  	var root = d3.hierarchy({children: data})
-      	.sum(function(d) { return d.value; })
-
-  	var node = svg.selectAll(".node")
-    	.data(pack(root).leaves())
-    	.enter().append("g")
-      	.attr("class", "node")
-      	.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-  
-  	node.append("circle")
-      	.attr("id", function(d) { return d.id; })
-      	.attr("r", function(d) { return d.r; }) //d.r;
-	.style("fill", function(d) { return color(d.data.job_title); })
-      	.on("mouseover", function(d) {		
-    		div.transition()		
-      		.duration(200)		
-      		.style("opacity", .9);
-      	
+		//var svg = d3.select("svg"),
+    		width = 800
+    		height = 600
     
-      		var duration = 300;
-  		data.forEach(function(d, i) {
-    			console.log(d.value);
-    			node.transition().duration(duration).delay(i * duration)
-        		.attr("r", d.value * 0.0003);
+		var svg = d3.select("body")
+		.append("svg").attr("id","bubble")
+		.attr("width", width)
+		.attr("height", height)
+
+		var div = d3.select("body").append("div")	
+		.attr("class", "tooltip")				
+		.style("opacity", 0);
+
+		svg.append("text")
+		.attr("x", 10)   //100
+		.attr("y", 40 ) //20
+		.style("font-size", "20px")  
+		.style("font-weight", "bold")
+		.text("DATA SCIENCE SALARY IN 2020")
+		.attr("text-anchor", "start")
+		//.attr("dy", "3.5em" )  
+
+		var pack = d3.pack()
+		.size([width-150, height])
+		.padding(1.5);
+		
+		var color = d3.scaleOrdinal()
+		.domain(data.map(function(d){ return d.value;}))
+		.range(['#fbb4ae','#b3cde3','#ccebc5','#decbe4','#fed9a6',
+		'#ffe9a8','#b9bfe3','#fddaec','#cccccc']);
+
+		var root = d3.hierarchy({children: data})
+		.sum(function(d) { return d.value; })
+
+		var node = svg.selectAll(".node")
+		.data(pack(root).leaves())
+		.enter().append("g")
+		.attr("class", "node")
+		.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+		node.append("circle")
+		.attr("id", function(d) { return d.id; })
+		.attr("r", function(d) { return d.r; }) //d.r;
+		.style("fill", function(d) { return color(d.data.job_title); })
+		.on("mouseover", function(d) {		
+			div.transition()		
+			.duration(200)		
+			.style("opacity", .9);
+
+
+			var duration = 300;
+			data.forEach(function(d, i) {
+				console.log(d.value);
+				node.transition().duration(duration).delay(i * duration)
+				.attr("r", d.value * 0.0003);
+			});
+
+			div.html(d.data.job_title + ": <br>"+d.data.value)	
+			.style("left", (d3.event.pageX) + "px")		
+			.style("top", (d3.event.pageY - 28) + "px");	
+		})					
+		.on("mouseout", function(d) {		
+			div.transition()		
+			.duration(500)		
+			.style("opacity", 0);	
 		});
 
-    		div.html(d.data.job_title + ": <br>"+d.data.value)	
-      		.style("left", (d3.event.pageX) + "px")		
-     		.style("top", (d3.event.pageY - 28) + "px");	
-  	})					
-    	.on("mouseout", function(d) {		
-    		div.transition()		
-      		.duration(500)		
-      		.style("opacity", 0);	
-  	});
-     
-  
-   	node.append("text")
-	.attr("text-anchor", "middle")
-	.attr("font-size", "12px")
-      	.text(function(d) {
-     	if (d.data.value > 0){
-       	return d.data.job_title;
-     	}
-     	return "";});
-  
 
-  	var legend = svg.selectAll(".legend")
-  	.data(data).enter()
-  	.append("g")
-  	.attr("class","legend")
-  	.attr("transform", "translate(" + 600 + "," + 120+ ")"); // 780,120
-     
- 
-   	legend.append("rect")
-     	.attr("x", 0) 
-     	.attr("y", function(d, i) { return 20 * i; })
-     	.attr("width", 15)
-     	.attr("height", 15)
-	.style("fill", function(d) { return color(d.job_title)});
-   
+		node.append("text")
+		.attr("text-anchor", "middle")
+		.attr("font-size", "12px")
+		.text(function(d) {
+		if (d.data.value > 0){
+		return d.data.job_title;
+		}
+		return "";});
 
-    	legend.append("text")
-     	.attr("x", 24) 
-    	.attr("text-anchor", "start")
-     	.attr("dy", "1em") 
-     	.attr("y", function(d, i) { return 20 * i; })
-     	.text(function(d) {return d.job_title;})
-    	.attr("font-size", "12px"); 
-  
-      
-    	legend.append("text")
-     	.attr("x",31)
-     	.attr("dy", "-.2em")
-     	.attr("y",-10)
-     	.text("Job Title")
-  	.attr("font-size", "14px"); 
-   	});
+
+		var legend = svg.selectAll(".legend")
+		.data(data).enter()
+		.append("g")
+		.attr("class","legend")
+		.attr("transform", "translate(" + 600 + "," + 120+ ")"); // 780,120
+
+
+		legend.append("rect")
+		.attr("x", 0) 
+		.attr("y", function(d, i) { return 20 * i; })
+		.attr("width", 15)
+		.attr("height", 15)
+		.style("fill", function(d) { return color(d.job_title)});
+
+
+		legend.append("text")
+		.attr("x", 24) 
+		.attr("text-anchor", "start")
+		.attr("dy", "1em") 
+		.attr("y", function(d, i) { return 20 * i; })
+		.text(function(d) {return d.job_title;})
+		.attr("font-size", "12px"); 
+
+
+		legend.append("text")
+		.attr("x",31)
+		.attr("dy", "-.2em")
+		.attr("y",-10)
+		.text("Job Title")
+		.attr("font-size", "14px"); 
+		});
+    	}
 
 </script>
 </body>
