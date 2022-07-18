@@ -89,6 +89,8 @@ text-align: center;
            value="SHOW 2022"
 	   onclick="showData('2022')" />
 </div>
+<p id = "Years" hidden>Years</p>
+<p id = "exp-levels" hidden>Levels</p>
 <br>
 <div class="filter">
 	<label for="exp-levels">Choose an experiment level:</label>
@@ -104,7 +106,8 @@ text-align: center;
     document.getElementById("default").click();
     function showDatabyLevel(){
 	var year = document.getElementById("Years").innerHTML;
-	showData(year)
+	console.log(year);
+	showData(year);
     }
 
     function showData(year) {
@@ -188,7 +191,7 @@ text-align: center;
 
 			var duration = 300;
 			data.forEach(function(d, i) {
-				console.log(d.value);
+				//console.log(d.value);
 				node.transition().duration(duration).delay(i * duration)
 				.attr("r", d.value * 0.0003);
 			});
