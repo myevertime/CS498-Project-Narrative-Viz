@@ -74,23 +74,21 @@ text-align: center;
 	 name="updateButton1" 
            	type="button" autofocus
 		class="button-1"	   
-           	value="SHOW 2020"
+           	value="2020"
 	 	onclick="showData('2020')" />
 		   
 	<input name="updateButton2" 
            type="button" 
 	   class="button-1"
-           value="SHOW 2021"
+           value="2021"
 	   onclick="showData('2021')" />
 		   
 	<input name="updateButton3" 
            type="button"
 	   class="button-1"
-           value="SHOW 2022"
+           value="2022"
 	   onclick="showData('2022')" />
 </div>
-<p id = "Years" hidden>Years</p>
-<p id = "exp-levels" hidden>Levels</p>
 <br>
 <div class="filter">
 	<label for="exp-levels">Choose an experiment level:</label>
@@ -105,7 +103,7 @@ text-align: center;
 <script>
     document.getElementById("default").click();
     function showDatabyLevel(){
-	var year = document.getElementById("Years").innerHTML;
+	var year = document.getElementById("Years").getAttribute('value');
 	console.log(year);
 	showData(year);
     }
