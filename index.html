@@ -103,18 +103,13 @@ svg {
 
 <script>
     document.getElementById("default").click();
-	
-    function SetUp() {
-	var year = document.getElementById("Years").innerHTML;
-	showData(year);
-    }
+
     function showData(year) {
 
 	//document.getElementById("L1").style.display = 'inline';
 	
 	var level = document.getElementById('exp-levels').value;
 
-	var year = document.getElementById("Years").innerHTML;
 	File = "data/job_salary_agg_" + year + ".csv"
     	//'https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv'
 	
