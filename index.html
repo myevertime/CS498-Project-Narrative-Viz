@@ -53,7 +53,7 @@ svg {
   touch-action: manipulation;
 }
 .button-1:hover,
-.button-1:checked {
+.button-1:focus, .button-1:active {
   background-color: #EA4C89; //background-color: #F082AC;
 }
 .center {
@@ -72,21 +72,21 @@ text-align: center;
 <div class="center">
   <input id="year2020"
 	 name="updateButton1" 
-           	type="radio" autofocus
+           	type="button" autofocus
 		class="button-1"	   
            	value="2020"
 	 	onclick="showData('2020');findYear('year2020');" />
 		   
 	<input id="year2021"
 	   name="updateButton2" 
-           type="radio" 
+           type="button" 
 	   class="button-1"
            value="2021"
 	   onclick="showData('2021');findYear('year2021');" />
 		   
 	<input id="year2022"
 	   name="updateButton3" 
-           type="radio"
+           type="button"
 	   class="button-1"
            value="2022"
 	   onclick="showData('2022');findYear('year2022');" />
@@ -125,7 +125,7 @@ text-align: center;
 		var color_lst = ["#ABD3DB", "#D9BCF2", "#F2C879", "#E5F5DC", "#FFFFE1", "#F2D0D9", "#F2F2F2", "#B8C6D9", "#8596A6", "#F2D9D0"]
 	}
 	else if (year == "2021"){
-		var color_lst = ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec','#F2D9D0', "#F2D9D0"]
+		var color_lst = ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0']
 	}
 	else {
 		var color_lst = ["#A9B5D9", "#F2A477", "#A0B392", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"]
