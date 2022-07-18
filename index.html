@@ -69,25 +69,27 @@ text-align: center;
 <div id='information'>
      <p style="text-align:center;"> This dashboard is based on survey that </p>
 </div>
-<div id = "Years" class="center">
-  <input id="default"
+<div class="center">
+  <input id="year2020"
 	 name="updateButton1" 
            	type="button" autofocus
 		class="button-1"	   
-           	value="2020"
-	 	onclick="showData('2020')" />
+           	value="SHOW 2020"
+	 	onclick="showData('2020');findYear('year2020');" />
 		   
-	<input name="updateButton2" 
+	<input id="year2021"
+	   name="updateButton2" 
            type="button" 
 	   class="button-1"
-           value="2021"
-	   onclick="showData('2021')" />
+           value="SHOW 2021"
+	   onclick="showData('2021');findYear('year2021');" />
 		   
-	<input name="updateButton3" 
+	<input id="year2022"
+	   name="updateButton3" 
            type="button"
 	   class="button-1"
-           value="2022"
-	   onclick="showData('2022')" />
+           value="SHOW 2022"
+	   onclick="showData('2022');findYear('year2022');" />
 </div>
 <br>
 <div class="filter">
@@ -101,10 +103,15 @@ text-align: center;
 </div>
 
 <script>
-    document.getElementById("default").click();
-    function showDatabyLevel(){
-	var year = document.getElementById("Years").getAttribute('value');
+    var year;
+    document.getElementById("year2020").click();
+
+    function findYear(id){
+    	year = document.getElementById(id).value;
 	console.log(year);
+    }
+	
+    function showDatabyLevel(){
 	showData(year);
     }
 
