@@ -326,7 +326,9 @@ div.slidecontainer {
 	function showBar(year){
 		var level = document.getElementById('exp-levels').value;
 		
-		File = "data/job_salary_bin_" + year + "_" + level + ".csv"	
+		File = "data/job_salary_bin_" + year + "_" + level + ".csv"
+		
+		var color = ["#RRGGBB", "#B0E0E6", "#ADD8E6", "#87CEFA", "#87CEEB", "#00BFFF", "#B0C4DE", "#1E90FF", "#6495ED", "#4682B4", "#4169E1", "#0000FF", "#0000CD", "#00008B", "#000080"]
 
     		d3.csv(File, function(d) {
   			d.value = +d["count"];
