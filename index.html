@@ -190,7 +190,6 @@ div.slidecontainer {
     function showData(year) {
 	//document.getElementById(year).click();
 	
-	d3.selectAll("svg").remove();
 	
 	var level = document.getElementById('exp-levels').value;
 	
@@ -225,7 +224,8 @@ div.slidecontainer {
  		return d;
 	}, 
 	function(error, data) {
-		console.log(error);
+		//console.log(error);
+		d3.selectAll("svg").remove();
 
 		//var svg = d3.select("svg"),
     		width = 800 //800
@@ -338,7 +338,6 @@ div.slidecontainer {
     	} //showData End
     
 	function showBar(year){
-		d3.selectAll("svg").remove();
 		
 		var level = document.getElementById('exp-levels').value;
 		
@@ -354,6 +353,8 @@ div.slidecontainer {
 			return d;
 		}, 
 		function(error, data) {
+			d3.selectAll("svg").remove();
+			
 			var width2 = 800;
 			var height2 = 400;
 			var margin = 20;
