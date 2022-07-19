@@ -146,9 +146,9 @@ $(".button-1").click(function(){ // when any button is clicked
     document.getElementById("year2020").click();
 
     var slider = document.getElementById("yearRange");
-    var output = document.getElementById("year2020");
+    var output = document.getElementById("defaultYear");
     output.innerHTML = slider.value; // Display the default slider value
-    console.log("slider.value");
+    console.log(slider.value);
 
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function() {
