@@ -350,8 +350,8 @@ div.slidecontainer {
 			return d;
 		}, 
 		function(error, data) {
-			var width2 = 1000;
-			var height2 = 1000;
+			var width2 = 400;
+			var height2 = 400;
 			var margin = 20;
 			
 			var x = d3.scaleBand()
@@ -394,14 +394,14 @@ div.slidecontainer {
 			.call(d3.axisBottom(x))
 			.selectAll("text")
 			//.attr("transform", "translate(-10,0)rotate(-45)")
-			.style("font-size",15)
+			.style("font-size",8)
 			.style("text-anchor", "end");
 
 			// Y axis
 			d3.select("svg").append("g") //svg2.append("g")
 			.attr("transform", "translate(" + margin + "," + margin + ")")
 			.call(d3.axisLeft(y))
-			.style("font-size",15);
+			.style("font-size",8);
 			
 			var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 			
