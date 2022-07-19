@@ -190,6 +190,8 @@ div.slidecontainer {
     function showData(year) {
 	//document.getElementById(year).click();
 	
+	d3.selectAll("svg").remove();
+	
 	var level = document.getElementById('exp-levels').value;
 	
 	if (year == "2020"){
@@ -224,8 +226,6 @@ div.slidecontainer {
 	}, 
 	function(error, data) {
 		console.log(error);
-		
-		//d3.selectAll("svg").remove();
 
 		//var svg = d3.select("svg"),
     		width = 800 //800
