@@ -128,14 +128,14 @@ div.slidecontainer {
            	type="button" autofocus
 		class="button-1"	   
            	value="Show Oldest Data"
-	 	onclick="showData('2020');selectSlider(2020);" />
+	 	onclick="showData('2020');selectSlider(2020);showBar('2020');" />
 		   
 	<input id="year2022"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
            value="Show Latest Data"
-	   onclick="showData('2022');selectSlider(2022);" />
+	   onclick="showData('2022');selectSlider(2022);showBar('2020');" />
 </div>
 <br>
 <div id = "filters">
@@ -168,6 +168,7 @@ div.slidecontainer {
 	    //output.innerHTML = this.value;
 	    showyear.value=yearRange.value;
 	    showData(this.value.toString());
+	    showBar(this.value.toString());
     }
 
     function selectSlider(slideryear){
@@ -181,6 +182,7 @@ div.slidecontainer {
 	    //document.getElementById(year).click();
 	    year = slider.value.toString();
 	    showData(year);
+	    showBar(year);
     }
 
     function showData(year) {
