@@ -325,7 +325,7 @@ div.slidecontainer {
 	var path = d3.geoPath().projection(d3.geoMercator());
 	d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world) {
   		if (error) throw error;
-  		svg.selectAll("path")
+  		svg2.selectAll("path")
      		.data(topojson.feature(world,world.objects.countries).features)
      		.enter().append("path")
      	.attr("d", path);
