@@ -380,13 +380,13 @@ div.slidecontainer {
 
 			svg2.append("g")
 			.attr("transform", "translate(" + margin + "," + margin + ")")
-			.call(d3.axisLeft(y));
-			.style("font-size",15)
+			.call(d3.axisLeft(y))
+			.style("font-size",15);
 			
 			var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 			
 			// Bars
-			svg2.selectAll("mybar")
+			svg2.selectAll()
 			  .data(data)
 			.enter()
 			.append("rect")
