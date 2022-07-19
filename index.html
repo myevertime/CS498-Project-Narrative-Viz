@@ -338,9 +338,13 @@ div.slidecontainer {
     	} //showData End
     
 	function showBar(year){
+		d3.selectAll("svg").remove();
+		
 		var level = document.getElementById('exp-levels').value;
 		
 		File = "data/job_salary_bin_" + year + "_" + level + ".csv"
+		console.log(year);
+		console.log(level);
 		
 		var color = d3.scaleOrdinal(["#RRGGBB", "#B0E0E6", "#ADD8E6", "#87CEFA", "#87CEEB", "#00BFFF", "#B0C4DE", "#1E90FF", "#6495ED", "#4682B4", "#4169E1", "#0000FF", "#0000CD", "#00008B", "#000080"])
 
