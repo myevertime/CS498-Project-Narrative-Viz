@@ -150,7 +150,6 @@ div.slidecontainer {
 	<div class="slidecontainer">
   	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
 	<output id="showyear" name="year" for="yearRange">2020</output>
-  	<p>Year: <span id="defaultYear"></span></p>
 	</div>
 </div>
 <script>
@@ -184,7 +183,6 @@ div.slidecontainer {
 
     function showData(year) {
 	//document.getElementById(year).click();
-	//document.getElementById("L1").style.display = 'inline';
 	
 	var level = document.getElementById('exp-levels').value;
 	
@@ -226,7 +224,7 @@ div.slidecontainer {
 
 		svg.append("text")
 		.attr("x", 10)   //100
-		.attr("y", 0 ) //40
+		.attr("y", 10 ) //40
 		.style("font-size", "15px")  
 		.style("font-weight", "bold")
 		.text("TOP 10 SALARY JOB TITLES")
