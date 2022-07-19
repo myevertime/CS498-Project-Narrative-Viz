@@ -121,6 +121,7 @@ div.slidecontainer {
 </div>
 <div id='information'>
      <p style="text-align:center;"> This dashboard is based on survey that </p>
+     <p>The number of participants in $YEAR$ with $EXP$ experience levels is $COUNT$ and their average salary value is $AVG$.</p>
 </div>
 <div class="center">
   <input id="year2020"
@@ -361,7 +362,7 @@ div.slidecontainer {
 			// Add Y axis
 			var y = d3.scaleLinear()
 			.domain([0, d3.max(data, function(d) { return d.value; })])
-			.range([ height, 0]);
+			.range([ height2, 0]);
 
 			svg2.append("g")
 				.style("font-size",15)
@@ -397,7 +398,7 @@ div.slidecontainer {
 			.transition()
 			.duration(400)
 			.attr("y", function(d) { return y(d.value); })
-			.attr("height", function(d) { return height - y(d.value); })
+			.attr("height", function(d) { return height2 - y(d.value); })
 			.delay(function(d,i){console.log(i) ; return(i*100)})
 		});
 
