@@ -155,7 +155,7 @@ div.slidecontainer {
 	<output id="showyear" name="year" for="yearRange">2020</output>
 	</div>
 </div>
-<svg width=1500 height=700></svg>
+<svg width=1000 height=1200></svg>
 <script>
     var year;
     document.getElementById("year2020").click();
@@ -345,7 +345,7 @@ div.slidecontainer {
 		console.log(year);
 		console.log(level);
 		
-		var color = d3.scaleOrdinal(["#RRGGBB", "#B0E0E6", "#ADD8E6", "#87CEFA", "#87CEEB", "#00BFFF", "#B0C4DE", "#1E90FF", "#6495ED", "#4682B4", "#4169E1", "#0000FF", "#0000CD", "#00008B", "#000080"])
+		var color = d3.scaleOrdinal(["#RRGGBB", "#B0C4DE", "#1E90FF", "#6495ED", "#4682B4", "#4169E1", "#0000FF", "#0000CD", "#00008B", "#000080", "#B0E0E6", "#ADD8E6", "#87CEFA", "#87CEEB", "#00BFFF"])
 
     		d3.csv(File, function(d) {
   			d.pct = +d["count"];
@@ -358,6 +358,9 @@ div.slidecontainer {
 			var width2 = 800;
 			var height2 = 400;
 			var margin = 20;
+			var upperchart_height = 700;
+			var upperchart_width = 800;
+
 			
 			var x = d3.scaleBand()
 				.range([ 0, width2 ])
@@ -370,7 +373,7 @@ div.slidecontainer {
 			var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 			
 			var svg2 = d3.select("svg").append("g") //.select("body").append("svg")
-				.attr("transform", "translate(" + margin + "," + margin + ")")
+				.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+margin) + ")")
 				.selectAll()
 				.data(data)
 				.enter()
@@ -395,7 +398,7 @@ div.slidecontainer {
 
 			// X axis
 			d3.select("svg").append("g")
-			.attr("transform", "translate(" + margin + "," + (height2+margin) + ")")
+			.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+height2+margin) + ")")
 			.call(d3.axisBottom(x))
 			.selectAll("text")
 			.attr("transform", "translate(-10,0)rotate(-45)")
@@ -403,7 +406,7 @@ div.slidecontainer {
 
 			// Y axis
 			d3.select("svg").append("g")
-			.attr("transform", "translate(" + margin + "," + margin + ")")
+			.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+margin) + ")")
 			.call(d3.axisLeft(y))
 			.style("font-size",8);
 			
