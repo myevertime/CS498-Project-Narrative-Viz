@@ -129,14 +129,14 @@ div.slidecontainer {
            	type="button" autofocus
 		class="button-1"	   
            	value="Show Oldest Data"
-	 	onclick="showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');" />
+	 	onclick="showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');clear();" />
 		   
 	<input id="year2022"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
            value="Show Latest Data"
-	   onclick="showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');" />
+	   onclick="showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');clear();" />
 </div>
 <br>
 <div id = "filters">
@@ -165,14 +165,18 @@ div.slidecontainer {
     //output.innerHTML = slider.value; // Display the default slider value
     //console.log(slider.value);
 
+    function clear() {
+    	d3.selectAll(".node").remove();
+	d3.selectAll(".legend").remove();
+	d3.selectAll("rect").remove();
+    }
+	
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function() {
 	    //output.innerHTML = this.value;
 	    showyear.value=yearRange.value;
 	    
-	    d3.selectAll(".node").remove();
-	    d3.selectAll(".legend").remove();
-	    d3.selectAll("rect").remove();
+	    clear();
 	    
 	    changeInfo(year);
 	    showData(this.value.toString());
@@ -185,14 +189,12 @@ div.slidecontainer {
 	    //document.getElementById("defaultYear").innerHTML = slideryear;
 	    document.getElementById("showyear").value = slideryear;
     }
-	
+
     function showDatabyLevel(){
 	    //document.getElementById(year).click();
 	    year = slider.value.toString();
 	    
-	    d3.selectAll(".node").remove();
-	    d3.selectAll(".legend").remove();
-	    d3.selectAll("rect").remove();
+	    clear();
 	    
 	    changeInfo(year);
 	    showData(year);
