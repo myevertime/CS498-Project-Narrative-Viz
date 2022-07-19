@@ -16,7 +16,7 @@ svg {
  font: 16px"Avenir";
 
 }
-  div.tooltip {	
+div.tooltip {	
     position: absolute;			
     text-align: center;			
     width: 200px;					
@@ -64,11 +64,17 @@ $(".button-1").click(function(){ // when any button is clicked
    $(this).addClass("active"); //assign the "active" class only to the one that was clicked
    return false;
 }
+.filter{
+	width: 50%;
+	float: left;
+}
 /* slider css style - https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+	
 .slidecontainer {
-	position: fixed;
-	bottom: 0;
-	width: 100%; /* Width of the outside container */
+	/*position: fixed;*/
+	/*bottom: 0;*/
+	width: 50%; /* Width of the outside container */
+	float: right;
 }
 /* The slider itself */
 .slider {
@@ -212,7 +218,7 @@ $(".button-1").click(function(){ // when any button is clicked
 
 		svg.append("text")
 		.attr("x", 10)   //100
-		.attr("y", 40 ) //20
+		.attr("y", 0 ) //40
 		.style("font-size", "15px")  
 		.style("font-weight", "bold")
 		.text("TOP 10 SALARY JOB TITLES")
