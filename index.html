@@ -66,7 +66,9 @@ $(".button-1").click(function(){ // when any button is clicked
 }
 /* slider css style - https://www.w3schools.com/howto/howto_js_rangeslider.asp */
 .slidecontainer {
-  width: 100%; /* Width of the outside container */
+	position: absolute;
+	bottom: 0;
+	width: 100%; /* Width of the outside container */
 }
 /* The slider itself */
 .slider {
@@ -99,10 +101,6 @@ $(".button-1").click(function(){ // when any button is clicked
   background: #04AA6D; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
-#footer {
-    position: absolute;
-    bottom: 0;
-}
 </style>
 
 <body>
@@ -121,13 +119,6 @@ $(".button-1").click(function(){ // when any button is clicked
            	value="Show Oldest Data"
 	 	onclick="showData('2020');findYear('2020');" />
 		   
-	/* <input id="year2021"
-	   name="updateButton2" 
-           type="button" 
-	   class="button-1"
-           value="2021"
-	   onclick="showData('2021');findYear('2021');" /> */
-		   
 	<input id="year2022"
 	   name="updateButton3" 
            type="button"
@@ -145,7 +136,7 @@ $(".button-1").click(function(){ // when any button is clicked
   	<option value="SE">Senior-level/Expert</option>
 	</select>
 </div>
-<div id="footer" class="slidecontainer">
+<div class="slidecontainer">
   <input type="range" min="2020" max="2022" value="2021" class="slider" id="yearRange">
   <p>Year: <span id="defaultYear"></span></p>
 </div>
@@ -155,24 +146,25 @@ $(".button-1").click(function(){ // when any button is clicked
     document.getElementById("2020").click();
 
     var slider = document.getElementById("yearRange");
-    var output = document.getElementById("defaultYear");
+    var output = document.getElementById("year2020");
     output.innerHTML = slider.value; // Display the default slider value
+    console.log("slider.value");
 
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function() {
 	    output.innerHTML = this.value;
-	    showData(this.value);
+	    showData(this.value.toString(););
     }
 
     function findYear(id){
-	    year = slider.value;
+	    year = slider.value.toString();
 	    //year = document.getElementById(id).value;
 	    //document.getElementById(year).click();
     }
 	
     function showDatabyLevel(){
 	    //document.getElementById(year).click();
-	    year = slider.value;
+	    year = slider.value.toString();
 	    showData(year);
     }
 
