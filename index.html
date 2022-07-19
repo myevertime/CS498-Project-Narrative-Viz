@@ -317,7 +317,7 @@ div.slidecontainer {
 		.data(data).enter()
 		.append("g")
 		.attr("class","legend")
-		.attr("transform", "translate(" + 800 + "," + 120+ ")"); // 780,120
+		.attr("transform", "translate(" + 500 + "," + 120+ ")"); // 780,120
 
 
 		legend.append("rect")
@@ -367,8 +367,8 @@ div.slidecontainer {
 			var width2 = 800;
 			var height2 = 400;
 			var margin = 20;
-			var upperchart_height = 500;
-			var upperchart_width = 0;
+			var upperchart_height = 0; //600;
+			var upperchart_width = 800;
 
 			
 			var x = d3.scaleBand()
@@ -382,7 +382,7 @@ div.slidecontainer {
 			var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 			
 			var svg2 = d3.select("svg").append("g") //.select("body").append("svg")
-				.attr("transform", "translate(" + margin + "," + (upperchart_height+margin) + ")")
+				.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+margin) + ")")
 				.selectAll()
 				.data(data)
 				.enter()
@@ -407,20 +407,20 @@ div.slidecontainer {
 
 			// X axis
 			d3.select("svg").append("g")
-			.attr("transform", "translate(" + margin + "," + (upperchart_height+height2+margin) + ")")
+			.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+height2+margin) + ")")
 			.call(d3.axisBottom(x))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			.attr("transform", "translate(-10,0)rotate(-25)")
 			.style("text-anchor","end").style("font-size",8);
 
 			// Y axis
 			d3.select("svg").append("g")
-			.attr("transform", "translate(" + margin + "," + (upperchart_height+margin) + ")")
+			.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+margin) + ")")
 			.call(d3.axisLeft(y))
 			.style("font-size",8);
 			
 			// Bar Chart Animation (grow up)
-			d3.select("svg").selectAll("rect")
+			d3.select("svg").select("rect")
 			.transition()
 			.duration(400)
 			.attr("y", function(d) {return y(d.pct);})
