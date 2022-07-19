@@ -155,6 +155,7 @@ div.slidecontainer {
 	<output id="showyear" name="year" for="yearRange">2020</output>
 	</div>
 </div>
+<svg width=1500 height=700>
 <script>
     var year;
     document.getElementById("year2020").click();
@@ -230,8 +231,8 @@ div.slidecontainer {
     		width = 20 //800
     		height = 20 //600
     
-		var svg = d3.select("body")
-		.append("svg").attr("id","bubble")
+		var svg = d3.select("svg").append("g") //.select("body").append("svg")
+		.attr("id","bubble")
 		.attr("width", width)
 		.attr("height", height)
 
@@ -351,9 +352,10 @@ div.slidecontainer {
 		function(error, data) {
 			var width2 = 500;
 			var height2 = 500;
-			var margin = 10;
+			var margin = 20;
 
-			var svg2 = d3.select("body").append("svg").attr("id","barChart")
+			var svg2 = d3.select("svg").append("g") //.select("body").append("svg")
+				.attr("id","barChart")
 				.attr("width", width2+margin)
 				.attr("height", height2+margin)
 				.append("g")
