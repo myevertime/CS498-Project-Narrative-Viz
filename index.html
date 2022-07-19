@@ -129,14 +129,14 @@ div.slidecontainer {
            	type="button" autofocus
 		class="button-1"	   
            	value="Show Oldest Data"
-	 	onclick="showData('2020');selectSlider(2020);showBar('2020');" />
+	 	onclick="showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');" />
 		   
 	<input id="year2022"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
            value="Show Latest Data"
-	   onclick="showData('2020');selectSlider(2022);showBar('2020');" />
+	   onclick="showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');" />
 </div>
 <br>
 <div id = "filters">
@@ -174,6 +174,7 @@ div.slidecontainer {
 	    d3.selectAll(".legend").remove();
 	    d3.selectAll("rect").remove();
 	    
+	    changeInfo(year);
 	    showData(this.value.toString());
 	    showBar(this.value.toString());
     }
@@ -193,8 +194,32 @@ div.slidecontainer {
 	    d3.selectAll(".legend").remove();
 	    d3.selectAll("rect").remove();
 	    
+	    changeInfo(year);
 	    showData(year);
 	    showBar(year);
+    }
+    function changeInfo(year){
+    	if (year == "2020"){
+		var count = 2628
+		var avg = 95813
+		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
+		return ["#ABD3DB", "#D9BCF2", "#F2C879", "#E5F5DC", "#FFFFE1", "#F2D0D9", "#F2F2F2", "#B8C6D9", "#8596A6", "#F2D9D0"];
+		
+	}
+	else if (year == "2021"){
+		var count = 39277
+		var avg = 99853
+		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
+		
+		return ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0'];
+	}
+	else {
+		var count = 142623
+		var avg = 124522
+		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
+		
+		return ["#A9B5D9", "#F2A477", "#A0B392", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"];
+	}
     }
 
     function showData(year) {
@@ -203,27 +228,7 @@ div.slidecontainer {
 	
 	var level = document.getElementById('exp-levels').value;
 	
-	if (year == "2020"){
-		var count = 2628
-		var avg = 95813
-		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
-		var color_lst = ["#ABD3DB", "#D9BCF2", "#F2C879", "#E5F5DC", "#FFFFE1", "#F2D0D9", "#F2F2F2", "#B8C6D9", "#8596A6", "#F2D9D0"]
-		
-	}
-	else if (year == "2021"){
-		var count = 39277
-		var avg = 99853
-		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
-		
-		var color_lst = ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0']
-	}
-	else {
-		var count = 142623
-		var avg = 124522
-		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
-		
-		var color_lst = ["#A9B5D9", "#F2A477", "#A0B392", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"]
-	}
+	
 	File = "data/job_salary_agg_" + year + "_" + level + ".csv"
     	//'https://myevertime.github.io/narrative-viz/data/job_salary_agg.csv'
 	
