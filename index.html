@@ -320,8 +320,13 @@ div.slidecontainer {
 		.attr("font-size", "14px"); 
 		});
     	}
+	
+	var width2 = 800;
+	var height2 = 550;
 
-	var svg2 = d3.select("body").append("svg");
+	var svg2 = d3.select("body").append("svg").attr("id","worldmap")
+		.attr("width", width2)
+		.attr("height", height2)
 	var path = d3.geoPath().projection(d3.geoMercator());
 	d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world) {
   		if (error) throw error;
