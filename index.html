@@ -351,7 +351,7 @@ div.slidecontainer {
 		function(error, data) {
 			var width2 = 500;
 			var height2 = 500;
-			var margin = 50;
+			var margin = 10;
 
 			var svg2 = d3.select("body").append("svg").attr("id","barChart")
 				.attr("width", width2+margin)
@@ -369,7 +369,7 @@ div.slidecontainer {
 			.attr("transform", "translate(" + margin + "," + (height2+margin) + ")")
 			.call(d3.axisBottom(x))
 			.selectAll("text")
-			.attr("transform", "translate(-10,0)rotate(-45)")
+			//.attr("transform", "translate(-10,0)rotate(-45)")
 			.style("font-size",15)
 			.style("text-anchor", "end");
 
