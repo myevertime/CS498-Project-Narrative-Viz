@@ -64,10 +64,10 @@ $(".button-1").click(function(){ // when any button is clicked
    $(this).addClass("active"); //assign the "active" class only to the one that was clicked
    return false;
 }
-div{
+.filters{
 	width: 100%;
 }
-div.filter{
+.filter{
 	width: 50%;
 	float: left;
 }
@@ -136,7 +136,7 @@ div.slidecontainer {
 	   onclick="showData('2022');selectSlider(2022);" />
 </div>
 <br>
-<div>
+<div id = "filters">
 	<div class="filter">
 		<label for="exp-levels">Choose an experiment level:</label>
 		<select name="exp-levels" id="exp-levels" onchange="showDatabyLevel()">
@@ -146,6 +146,7 @@ div.slidecontainer {
   		<option value="SE">Senior-level/Expert</option>
 		</select>
 	</div>
+	
 	<div class="slidecontainer">
   	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
 	<output id="showyear" name="year" for="yearRange">2020</output>
@@ -157,13 +158,13 @@ div.slidecontainer {
     document.getElementById("year2020").click();
 
     var slider = document.getElementById("yearRange");
-    var output = document.getElementById("defaultYear");
-    output.innerHTML = slider.value; // Display the default slider value
-    console.log(slider.value);
+    //var output = document.getElementById("defaultYear");
+    //output.innerHTML = slider.value; // Display the default slider value
+    //console.log(slider.value);
 
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function() {
-	    output.innerHTML = this.value;
+	    //output.innerHTML = this.value;
 	    showyear.value=yearRange.value;
 	    showData(this.value.toString());
     }
@@ -171,7 +172,8 @@ div.slidecontainer {
     function selectSlider(slideryear){
 	    //year = slider.value.toString();
 	    document.getElementById("yearRange").value = slideryear;
-	    document.getElementById("defaultYear").innerHTML = slideryear;
+	    //document.getElementById("defaultYear").innerHTML = slideryear;
+	    document.getElementById("showyear").value = slideryear;
     }
 	
     function showDatabyLevel(){
