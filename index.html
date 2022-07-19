@@ -117,14 +117,14 @@ $(".button-1").click(function(){ // when any button is clicked
            	type="button" autofocus
 		class="button-1"	   
            	value="Show Oldest Data"
-	 	onclick="showData('2020');findYear('2020');" />
+	 	onclick="showData('2020');selectSlider(2020);" />
 		   
 	<input id="year2022"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
            value="Show Latest Data"
-	   onclick="showData('2022');findYear('2022');" />
+	   onclick="showData('2022');selectSlider(2022);" />
 </div>
 <br>
 <div class="filter">
@@ -156,10 +156,9 @@ $(".button-1").click(function(){ // when any button is clicked
 	    showData(this.value.toString());
     }
 
-    function findYear(id){
-	    year = slider.value.toString();
-	    //year = document.getElementById(id).value;
-	    //document.getElementById(year).click();
+    function selectSlider(slideryear){
+	    //year = slider.value.toString();
+	    output.innerHTML = slideryear;
     }
 	
     function showDatabyLevel(){
