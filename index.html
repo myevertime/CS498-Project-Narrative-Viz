@@ -64,17 +64,20 @@ $(".button-1").click(function(){ // when any button is clicked
    $(this).addClass("active"); //assign the "active" class only to the one that was clicked
    return false;
 }
-.filter{
+div{
+	width: 100%;
+}
+div.filter{
 	width: 50%;
 	float: left;
 }
 /* slider css style - https://www.w3schools.com/howto/howto_js_rangeslider.asp */	
-.slidecontainer {
+div.slidecontainer {
 	/*position: fixed;*/
 	/*bottom: 0;*/
 	display:inline-block;
 	width: 50%; /* Width of the outside container */
-	/*float: right;*/
+	float: right;
 }
 /* The slider itself */
 .slider {
@@ -133,20 +136,22 @@ $(".button-1").click(function(){ // when any button is clicked
 	   onclick="showData('2022');selectSlider(2022);" />
 </div>
 <br>
-<div class="filter">
-	<label for="exp-levels">Choose an experiment level:</label>
-	<select name="exp-levels" id="exp-levels" onchange="showDatabyLevel()">
-    	<option value="all">All</option>
-  	<option value="EN">Entry-level/Junior</option>
-  	<option value="MI">Mid-level/Intermediate</option>
-  	<option value="SE">Senior-level/Expert</option>
-	</select>
+<div>
+	<div class="filter">
+		<label for="exp-levels">Choose an experiment level:</label>
+		<select name="exp-levels" id="exp-levels" onchange="showDatabyLevel()">
+    		<option value="all">All</option>
+  		<option value="EN">Entry-level/Junior</option>
+  		<option value="MI">Mid-level/Intermediate</option>
+  		<option value="SE">Senior-level/Expert</option>
+		</select>
+	</div>
+	<div class="slidecontainer">
+  	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
+	<output id="showyear" name="year" for="yearRange">2020</output>
+  	<p>Year: <span id="defaultYear"></span></p>
+	</div>
 </div>
-<div class="slidecontainer">
-  <input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
-  <p>Year: <span id="defaultYear"></span></p>
-</div>
-
 <script>
     var year;
     document.getElementById("year2020").click();
@@ -159,6 +164,7 @@ $(".button-1").click(function(){ // when any button is clicked
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function() {
 	    output.innerHTML = this.value;
+	    showyear.value=yearRange.value;
 	    showData(this.value.toString());
     }
 
