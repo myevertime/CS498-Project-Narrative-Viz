@@ -137,7 +137,7 @@ $(".button-1").click(function(){ // when any button is clicked
 	</select>
 </div>
 <div class="slidecontainer">
-  <input type="range" min="2020" max="2022" value="2021" class="slider" id="yearRange">
+  <input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
   <p>Year: <span id="defaultYear"></span></p>
 </div>
 
@@ -158,7 +158,7 @@ $(".button-1").click(function(){ // when any button is clicked
 
     function selectSlider(slideryear){
 	    //year = slider.value.toString();
-	    output.innerHTML = slideryear;
+	    document.getElementById("defaultYear").innerHTML = slideryear;
     }
 	
     function showDatabyLevel(){
