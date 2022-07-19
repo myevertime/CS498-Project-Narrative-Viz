@@ -237,7 +237,7 @@ div.slidecontainer {
 		//console.log(error);
 
 		//var svg = d3.select("svg"),
-    		width = 1000 //800
+    		width = 800 //800
     		height = 600 //600
     
 		var svg = d3.select("svg").append("g") //.select("body").append("svg")
@@ -251,7 +251,7 @@ div.slidecontainer {
 
 		svg.append("text")
 		.attr("x", 10)   //100
-		.attr("y", 10 ) //40
+		.attr("y", 20 ) //40
 		.style("font-size", "15px")  
 		.style("font-weight", "bold")
 		.text("TOP 10 SALARY JOB TITLES")
@@ -317,7 +317,7 @@ div.slidecontainer {
 		.data(data).enter()
 		.append("g")
 		.attr("class","legend")
-		.attr("transform", "translate(" + 600 + "," + 120+ ")"); // 780,120
+		.attr("transform", "translate(" + 800 + "," + 120+ ")"); // 780,120
 
 
 		legend.append("rect")
@@ -367,7 +367,7 @@ div.slidecontainer {
 			var width2 = 800;
 			var height2 = 400;
 			var margin = 20;
-			var upperchart_height = 600;
+			var upperchart_height = 500;
 			var upperchart_width = 0;
 
 			
