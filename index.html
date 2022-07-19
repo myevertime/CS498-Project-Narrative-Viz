@@ -354,8 +354,8 @@ div.slidecontainer {
 			var margin = 50;
 
 			var svg2 = d3.select("body").append("svg").attr("id","barChart")
-				.attr("width", width2)
-				.attr("height", height2)
+				.attr("width", width2+margin)
+				.attr("height", height2+margin)
 				.append("g")
 				.attr("transform", "translate(" + margin + "," + margin + ")");
 
@@ -375,7 +375,7 @@ div.slidecontainer {
 
 			// Y axis
 			var y = d3.scaleLinear()
-			.domain([0, d3.max(data, function(d) { return d.value; })])
+			.domain([0, 1]) //d3.max(data, function(d) { return d.value; })
 			.range([ height2, 0]);
 
 			svg2.append("g")
