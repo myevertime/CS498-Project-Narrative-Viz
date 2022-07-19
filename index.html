@@ -169,6 +169,11 @@ div.slidecontainer {
     slider.oninput = function() {
 	    //output.innerHTML = this.value;
 	    showyear.value=yearRange.value;
+	    
+	    d3.selectAll(".node").remove();
+	    d3.selectAll(".legend").remove();
+	    d3.selectAll("rect").remove();
+	    
 	    showData(this.value.toString());
 	    showBar(this.value.toString());
     }
@@ -183,6 +188,11 @@ div.slidecontainer {
     function showDatabyLevel(){
 	    //document.getElementById(year).click();
 	    year = slider.value.toString();
+	    
+	    d3.selectAll(".node").remove();
+	    d3.selectAll(".legend").remove();
+	    d3.selectAll("rect").remove();
+	    
 	    showData(year);
 	    showBar(year);
     }
@@ -225,10 +235,9 @@ div.slidecontainer {
 	}, 
 	function(error, data) {
 		//console.log(error);
-		//d3.selectAll(".node").remove();
 
 		//var svg = d3.select("svg"),
-    		width = 800 //800
+    		width = 1000 //800
     		height = 600 //600
     
 		var svg = d3.select("svg").append("g") //.select("body").append("svg")
@@ -335,6 +344,7 @@ div.slidecontainer {
 		.text("Job Title")
 		.attr("font-size", "14px"); 
 		}); //year+level End
+	    
     	} //showData End
     
 	function showBar(year){
@@ -353,12 +363,11 @@ div.slidecontainer {
 			return d;
 		}, 
 		function(error, data) {
-			d3.selectAll("rect").remove();
 			
 			var width2 = 800;
 			var height2 = 400;
 			var margin = 20;
-			var upperchart_height = 700;
+			var upperchart_height = 600;
 			var upperchart_width = 0;
 
 			
