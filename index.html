@@ -129,14 +129,14 @@ div.slidecontainer {
            	type="button" autofocus
 		class="button-1"	   
            	value="Show Oldest Data"
-	 	onclick="showData('2020');selectSlider(2020);" />
+	 	onclick="showData('2020');selectSlider(2020);showBar('2020');" />
 		   
 	<input id="year2022"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
            value="Show Latest Data"
-	   onclick="showData('2022');selectSlider(2022);" />
+	   onclick="showData('2022');selectSlider(2022);showBar('2020');" />
 </div>
 <br>
 <div id = "filters">
@@ -170,7 +170,7 @@ div.slidecontainer {
 	    //output.innerHTML = this.value;
 	    showyear.value=yearRange.value;
 	    showData(this.value.toString());
-	    //showBar(this.value.toString());
+	    showBar(this.value.toString());
     }
 
     function selectSlider(slideryear){
@@ -184,7 +184,7 @@ div.slidecontainer {
 	    //document.getElementById(year).click();
 	    year = slider.value.toString();
 	    showData(year);
-	    //showBar(year);
+	    showBar(year);
     }
 
     function showData(year) {
@@ -202,7 +202,7 @@ div.slidecontainer {
 	else if (year == "2021"){
 		var count = 39277
 		var avg = 99853
-		document.getElementById('stats').innerText = "The number of participants in " + year + "is " + count + " and their average salary value is " + avg + "."
+		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
 		
 		var color_lst = ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0']
 	}
@@ -335,7 +335,86 @@ div.slidecontainer {
 		.text("Job Title")
 		.attr("font-size", "14px"); 
 		}); //year+level End
-    } //showData End
+    	} //showData End
+    
+	function showBar(year){
+		var level = document.getElementById('exp-levels').value;
+		
+		File = "data/job_salary_bin_" + year + "_" + level + ".csv"
+		
+		var color = d3.scaleOrdinal(["#RRGGBB", "#B0E0E6", "#ADD8E6", "#87CEFA", "#87CEEB", "#00BFFF", "#B0C4DE", "#1E90FF", "#6495ED", "#4682B4", "#4169E1", "#0000FF", "#0000CD", "#00008B", "#000080"])
+
+    		d3.csv(File, function(d) {
+  			d.value = +d["count"];
+			d.Name = d["bin"]
+			return d;
+		}, 
+		function(error, data) {
+			var width2 = 1000;
+			var height2 = 1000;
+			var margin = 20;
+			
+			var x = d3.scaleBand()
+				.range([ 0, width2 ])
+				.domain(data.map(function(d) { return d.Name; }))
+				.padding(0.2);
+			var y = d3.scaleLinear()
+			.domain([0, 1]) //d3.max(data, function(d) { return d.value; })
+			.range([ height2, 0]);
+			
+			var svg2 = d3.select("svg").append("g") //.select("body").append("svg")
+				.attr("transform", "translate(" + margin + "," + margin + ")")
+				.selectAll()
+				.data(data)
+				.enter()
+				.append("rect")
+				.attr("x", function(d) { return x(d.Name); })
+				.attr("width", x.bandwidth())
+				// no bar at the beginning thus:
+				.attr("height", function(d) { return height2 - y(0); }) // always equal to 0
+				.attr("y", function(d) { return y(0); })
+				.attr("fill", function(d, i) { return color(i); })
+				.on("mouseover", function(d) {		
+					div.transition()		
+						.duration(200)		
+						.style("opacity", .9);		
+					div.html("Count of '" + d.Name + "': " +(d.value))	
+						.style("left", (d3.event.pageX) + "px")		
+						.style("top", (d3.event.pageY - 28) + "px"); })					
+				.on("mouseout", function(d) {		
+					div.transition()		
+					.duration(500)		
+					.style("opacity", 0);	
+				});
+
+
+			// X axis
+			d3.select("svg").append("g")
+			.attr("transform", "translate(" + margin + "," + (height2+margin) + ")")
+			.call(d3.axisBottom(x))
+			.selectAll("text")
+			//.attr("transform", "translate(-10,0)rotate(-45)")
+			.style("font-size",15)
+			.style("text-anchor", "end");
+
+			// Y axis
+			d3.select("svg").append("g") //svg2.append("g")
+			.attr("transform", "translate(" + margin + "," + margin + ")")
+			.call(d3.axisLeft(y))
+			.style("font-size",15);
+			
+			var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
+			
+			// Animation
+			d3.select("svg").selectAll("rect")
+			.transition()
+			.duration(400)
+			.attr("y", function(d) { return y(d.value); })
+			.attr("height", function(d) { return height2 - y(d.value); })
+			.delay(function(d,i){console.log(i); return(i*100)})
+		});
+
+	} //showBar End
 </script>
 </body>
 </html>
