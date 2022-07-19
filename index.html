@@ -420,7 +420,7 @@ div.slidecontainer {
 			.style("font-size",8);
 			
 			// Bar Chart Animation (grow up)
-			d3.select("svg").select("rect")
+			d3.select("svg").selectAll("rect")
 			.transition()
 			.duration(400)
 			.attr("y", function(d) {return y(d.pct);})
