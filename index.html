@@ -201,7 +201,7 @@ div.slidecontainer {
 	else if (year == "2021"){
 		var count = 39277
 		var avg = 99853
-		d3.select("#information").html("The number of participants in " + "<span style='color:blue;font-family:verdana" + year + "</span>" + "is " + count + " and their average salary value is " + avg + ".")
+		document.getElementById('stats').innerText = "The number of participants in " + year + "is " + count + " and their average salary value is " + avg + "."
 		
 		var color_lst = ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0']
 	}
@@ -351,7 +351,7 @@ div.slidecontainer {
 		function(error, data) {
 			var width2 = 300;
 			var height2 = 300;
-			var margin = 50;
+			var margin = 600;
 
 			var svg2 = d3.select("body").append("svg").attr("id","barChart")
 				.attr("width", width2)
