@@ -445,7 +445,7 @@ div.slidecontainer {
 				.attr("width", x.bandwidth())
 				.attr("height", function(d) { return height2 - y(0); }) // always equal to 0
 				.attr("y", function(d) { return y(0); })
-				.attr("fill", function(d, i) { return color(i); })
+				.attr("fill", "#1b28cc") //function(d, i) { return color(i); }
 				.on("mouseover", function(d) {		
 					div.transition()		
 						.duration(300)		
