@@ -200,7 +200,7 @@ div.slidecontainer {
 
 </style>
 
-<body style="width:1800px;">
+<body style="width:1700px;">
 <div id='introduction'>
       <p style="text-align:center;"><img src="image/free-icon-data-analysis-1643996.png" alt="icon image" style="height:50px;"></p>
       <h2 style="text-align:center">SALARY INFORMATION OF DATA SCIENTISTS</h2>
@@ -232,31 +232,30 @@ div.slidecontainer {
 	   onclick="clear();" />
 </div>
 <br>
-<div id = "filters">
-	<div class="__range __range-step">
-        	<input value="2020" type="range" max="2022" min="2020" step="1" list="ticks1">
-        	<datalist id="ticks1">
-		  <option value="2020">2020</option>
-		  <option value="2021">2021</option>
-		  <option value="2022">2022</option>
-        	</datalist>
-	</div>
-	<div class="filter">
-		<label for="exp-levels">Choose an experiment level:</label>
-		<select name="exp-levels" id="exp-levels" onchange="showDatabyLevel()">
-    		<option value="all">All</option>
-  		<option value="EN">Entry-level/Junior</option>
-  		<option value="MI">Mid-level/Intermediate</option>
-  		<option value="SE">Senior-level/Expert</option>
-		</select>
-	</div>
+<div class="__range __range-step">
+	<label for="Years">Choose a year:</label>
+        <input id = "Years" value="2020" type="range" max="2022" min="2020" step="1" list="ticks1">
+        <datalist id="ticks1">
+		 <option value="2020">2020</option>
+		 <option value="2021">2021</option>
+		 <option value="2022">2022</option>
+        </datalist>
+</div>
+<div class="filter">
+	<label for="exp-levels">Choose an experiment level:</label>
+	<select name="exp-levels" id="exp-levels" onchange="showDatabyLevel()">
+    	<option value="all">All</option>
+  	<option value="EN">Entry-level/Junior</option>
+  	<option value="MI">Mid-level/Intermediate</option>
+  	<option value="SE">Senior-level/Expert</option>
+	</select>
 </div>
 <svg width=2000 height=1200></svg>
 <script>
     var year;
     document.getElementById("year2020").click();
 
-    var slider = document.getElementById("yearRange");
+    var slider = document.getElementById("Years");
     //var output = document.getElementById("defaultYear");
     //output.innerHTML = slider.value; // Display the default slider value
     //console.log(slider.value);
@@ -282,7 +281,7 @@ div.slidecontainer {
 
     function selectSlider(slideryear){
 	    //year = slider.value.toString();
-	    document.getElementById("yearRange").value = slideryear;
+	    document.getElementById("Years").value = slideryear; //yearRange
 	    //document.getElementById("defaultYear").innerHTML = slideryear;
 	    document.getElementById("showyear").value = slideryear;
     }
@@ -427,8 +426,8 @@ div.slidecontainer {
 
 		legend.append("circle") //rect
 		.attr("cx", 0) 
-		.attr("cy", function(d, i) { return 25 * i; }) //20
-		.attr("r", 10)
+		.attr("cy", function(d, i) { return 20 * i; }) //20
+		.attr("r", 5)
 		.style("fill", function(d) { return color(d.job_title)});
 
 
