@@ -151,7 +151,7 @@ div.slidecontainer {
 </div>
 <br>
 <div id = "filters">
-	<div class="slidecontainer left">
+	<div id="slidercontainer" class="slidecontainer left">
 	<label id="sliderlabel" for="exp-yearRange">Select a year:</label>
   	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
 	<output id="showyear" name="year" for="yearRange">2020</output>
@@ -181,12 +181,22 @@ div.slidecontainer {
     }
     
     function clearSlider() {
-	document.getElementById('sliderlabel').innerHTML = "Average Up To 2022";
-	document.getElementById("2022").click();
+	var x = document.getElementById("slidercontainer");
+  	if (x.style.display === "none") {
+    		x.style.display = "block";
+  	} else {
+    		x.style.display = "none";
+  	}	
     }
     
     function setSlider() {
-	document.getElementById('sliderlabel').innerHTML = "Select a year:";
+	//document.getElementById('sliderlabel').innerHTML = "Select a year:";
+	var x = document.getElementById("slidercontainer");
+  	if (x.style.display === "none") {
+    		x.style.display = "inline";
+  	} else {
+    		x.style.display = "inline";
+  	}	
     }
 	
     // Update the current slider value (each time you drag the slider handle)
