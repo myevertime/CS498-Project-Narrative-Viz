@@ -78,7 +78,6 @@ $(".button-1").click(function(){ // when any button is clicked
 div.slidecontainer {
 	/*position: fixed;*/
 	/*bottom: 0;*/
-	display:inline;
 	width: 100%; /* Width of the outside container */
 	float: right;
 }
@@ -138,6 +137,13 @@ div.slidecontainer {
 	   class="button-1"
            value="Show Latest Data"
 	   onclick="clear();showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');clear();" />
+	
+	<input id="allYear"
+	   name="updateButton3" 
+           type="button"
+	   class="button-1"
+           value="Compare All Years"
+	   onclick="clear();" />
 </div>
 <br>
 <div id = "filters">
