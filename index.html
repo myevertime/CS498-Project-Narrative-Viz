@@ -314,13 +314,6 @@ div.slidecontainer {
 		node.append("circle")
 		.attr("id", function(d) { return d.id; })
 		.attr("r", function(d) { return 0; }) //d.r;
-		
-		
-		// Bar Chart Animation (grow up)
-		d3.select("svg").selectAll("circle")
-		.transition()
-		.duration(400)
-		.attr("r", function(d) {return d.r;})
 		.style("fill", function(d) { return color(d.data.job_title); })
 		.on("mouseover", function(d) {		
 			div.transition()		
@@ -343,10 +336,18 @@ div.slidecontainer {
 			div.transition()		
 			.duration(500)		
 			.style("opacity", 0);	
-		})
+		});
+		
+		
+		// Bubble Chart Animation (grow up)
+		d3.select("svg").selectAll("circle")
+		.transition()
+		.duration(800)
+		.attr("r", function(d) {return d.r;})
+		.style("fill", function(d) { return color(d.data.job_title); })
 		.delay(function(d,i){return( i * 50)});
 
-
+		
 		node.append("text")
 		.attr("text-anchor", "middle")
 		.attr("font-size", "12px")
