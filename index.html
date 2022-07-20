@@ -218,11 +218,15 @@ div.slidecontainer {
 
     function showDatabyLevel(){
 	    var chk = document.getElementById("slidercontainer");
-  	    if (chk.style.display === "inline") {
-    		year = slider.value.toString();
-		console.log(year);
-  	    } else {
+	    console.log(chk.style.display);
+  	    if (chk.style.display === "none") {
     		year = "all";
+  	    } 
+	    else if (chk.style.display === "block") {
+    		year = "all";
+  	    } 
+	    else {
+		year = slider.value.toString();
 	    }	
 	    
 	    clearData();
