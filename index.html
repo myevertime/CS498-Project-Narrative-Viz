@@ -183,12 +183,13 @@ div.slidecontainer {
     }
     
     function clearSlider() {
-	var x = document.getElementById("slidercontainer");
-  	if (x.style.display === "none") {
-    		x.style.display = "block";
-  	} else {
-    		x.style.display = "none";
-  	}	
+	//var x = document.getElementById("slidercontainer");
+  	//if (x.style.display === "none") {
+    	//	x.style.display = "block";
+  	//} else {
+    	//	x.style.display = "none";
+  	//}
+	document.getElementById("slidercontainer").style.display === "none";
     }
     
     function setSlider() {
@@ -215,8 +216,7 @@ div.slidecontainer {
     function showDatabyLevel(){
 	    console.log("hello");
 	    var chk = document.getElementById("slidercontainer");
-	    console.log(chk);
-	    console.log(chk.style.display);
+
   	    if (chk.style.display === "none") {
     		year = "all";
   	    } 
@@ -280,9 +280,8 @@ div.slidecontainer {
     	if (year == "2020"){
 		var count = 2628
 		var avg = 95813
-		//document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
-		('#stats').html("first"+"<br />"+"second")
-		
+		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
+
 		//return ["#ABD3DB", "#D9BCF2", "#F2C879", "#E5F5DC", "#FFFFE1", "#F2D0D9", "#F2F2F2", "#B8C6D9", "#8596A6", "#F2D9D0"];
 		
 	}
