@@ -37,7 +37,7 @@ div.tooltip {
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  display: inline; //inline-block
+  display: inline-block; //inline-block
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -60,6 +60,12 @@ div.tooltip {
 }
 .center {
 text-align: center;
+}
+.left {
+width: 50%;
+text-align: left;
+display: inline;
+float: right;
 }
 $(".button-1").click(function(){ // when any button is clicked
    $("button-1").removeClass("active"); //delete all "active" classes from all buttons
@@ -147,7 +153,7 @@ div.slidecontainer {
 </div>
 <br>
 <div id = "filters">
-	<div class="slidecontainer center">
+	<div class="slidecontainer left">
 	<label for="exp-yearRange">Select a year:</label>
   	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
 	<output id="showyear" name="year" for="yearRange">2020</output>
