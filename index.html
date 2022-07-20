@@ -307,7 +307,7 @@ div.slidecontainer {
     function showData(year) {
 	//document.getElementById(year).click();
 	
-	var color_lst = changeInfo(year);
+	//var color_lst = changeInfo(year);
 	
 	var level = document.getElementById('exp-levels').value;
 	
@@ -349,9 +349,9 @@ div.slidecontainer {
 		.size([width-150, height])
 		.padding(1.5);
 		
-		var color = d3.scaleOrdinal()
-		.domain(data.map(function(d){ return d.value;}))
-		.range(color_lst);
+		//var color = d3.scaleOrdinal()
+		//.domain(data.map(function(d){ return d.value;}))
+		//.range(color_lst);
 
 		var root = d3.hierarchy({children: data})
 		.sum(function(d) { return d.value; })
@@ -365,7 +365,7 @@ div.slidecontainer {
 		node.append("circle")
 		.attr("id", function(d) { return d.id; })
 		.attr("r", function(d) { return 0; }) //d.r;
-		.style("fill", function(d) { return color_lst(d.data.job_title); }) //color(d.data.job_title)
+		.style("fill", function(d) { return selectColor(d.data.job_title); }) //color(d.data.job_title)
 		.on("mouseover", function(d) {		
 			div.transition()		
 			.duration(200)		
@@ -395,7 +395,7 @@ div.slidecontainer {
 		.transition()
 		.duration(800)
 		.attr("r", function(d) {return d.r;})
-		.style("fill", function(d) { return color(d.data.job_title); })
+		.style("fill", function(d) { return selectColor(d.job_title); }) // color(d.job_title)
 		.delay(function(d,i){return( i * 50)});
 
 		
@@ -420,7 +420,7 @@ div.slidecontainer {
 		.attr("cx", 0) 
 		.attr("cy", function(d, i) { return 5 + 20 * i; }) //20
 		.attr("r", 7)
-		.style("fill", function(d) { return color_lst(d.data.job_title)});  //color(d.job_title)
+		.style("fill", function(d) { return selectColor(d.job_title)});  //color(d.job_title)
 
 
 		legend.append("text")
