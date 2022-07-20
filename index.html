@@ -216,13 +216,11 @@ div.slidecontainer {
     function showDatabyLevel(){
 	    console.log("hello");
 	    var chk = document.getElementById("slidercontainer");
+	    year = slider.value.toString();
 
   	    if (chk.style.display === "none") {
     		year = "all";
-  	    } 
-	    else {
-		year = slider.value.toString();
-	    }	
+  	    }
 	    
 	    clearData();
 	    
