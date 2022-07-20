@@ -419,7 +419,7 @@ div.slidecontainer {
 				.domain(data.map(function(d) { return d.bin; }))
 				.padding(0.2);
 			var y = d3.scaleLinear()
-			.domain([0, 1])
+			.domain([0, 0.5])
 			.range([height2,0]);
 
 			var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
