@@ -147,7 +147,7 @@ div.slidecontainer {
            type="button"
 	   class="button-1"
            value="Compare All Years"
-	   onclick="clearData();clearSlider();" />
+	   onclick="clearData();clearSlider();showData('all');showBar('all');changeInfo('all');" />
 </div>
 <br>
 <div id = "filters">
@@ -243,13 +243,19 @@ div.slidecontainer {
 		
 		return ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0'];
 	}
-	else {
+	else if (year=='2022'){
 		var count = 142623
 		var avg = 124522
 		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
 		
 		return ["#A9B5D9", "#F2A477", "#A0B392", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"];
 	}
+	else {
+		var count = 184528
+		var avg = 112297
+		document.getElementById('stats').innerText = "The number of surveys in total is " + count + " and the average salary value is " + avg + "."
+	}
+	
     }
 
     function showData(year) {
