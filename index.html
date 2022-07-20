@@ -129,14 +129,14 @@ div.slidecontainer {
            	type="button" autofocus
 		class="button-1"	   
            	value="Show Oldest Data"
-	 	onclick="clear();showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');" />
+	 	onclick="clear();showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');clear();" />
 		   
 	<input id="year2022"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
            value="Show Latest Data"
-	   onclick="clear();showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');" />
+	   onclick="clear();showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');clear();" />
 </div>
 <br>
 <div id = "filters">
@@ -330,7 +330,7 @@ div.slidecontainer {
 
 		legend.append("circle") //rect
 		.attr("cx", 0) 
-		.attr("cy", function(d, i) { return 20 * i; })
+		.attr("cy", function(d, i) { return 40 * i; }) //20
 		.attr("r", 10)
 		.style("fill", function(d) { return color(d.job_title)});
 
