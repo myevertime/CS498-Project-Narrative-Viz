@@ -339,8 +339,8 @@ div.slidecontainer {
 
 		legend.append("circle") //rect
 		.attr("cx", 0) 
-		.attr("cy", function(d, i) { return 20 * i; }) //20
-		.attr("r", 5)
+		.attr("cy", function(d, i) { return 5 + 20 * i; }) //20
+		.attr("r", 7)
 		.style("fill", function(d) { return color(d.job_title)});
 
 
@@ -348,7 +348,7 @@ div.slidecontainer {
 		.attr("x", 24) 
 		.attr("text-anchor", "start")
 		.attr("dy", "1em") 
-		.attr("y", function(d, i) { return 23 * i; })
+		.attr("y", function(d, i) { return 20 * i; })
 		.text(function(d) {return d.job_title;})
 		.attr("font-size", "12px"); 
 
