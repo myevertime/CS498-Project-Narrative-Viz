@@ -220,6 +220,7 @@ div.slidecontainer {
 	    var chk = document.getElementById("slidercontainer");
   	    if (chk.style.display === "inline") {
     		year = slider.value.toString();
+		console.log(year);
   	    } else {
     		year = "all";
 	    }	
@@ -288,7 +289,7 @@ div.slidecontainer {
 
 		//return ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0'];
 	}
-	else if (year=='2022'){
+	else if (year=="2022"){
 		var count = 142623
 		var avg = 124522
 		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
@@ -448,8 +449,6 @@ div.slidecontainer {
 		var level = document.getElementById('exp-levels').value;
 		
 		File = "data/job_salary_bin_" + year + "_" + level + ".csv"
-		console.log(year);
-		console.log(level);
 		
 		var color = d3.scaleOrdinal(["#fffafa", "#c0c4fd", "#828af5", "#1b28cc", "#000caf"])
 
