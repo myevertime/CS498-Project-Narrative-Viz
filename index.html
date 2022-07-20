@@ -207,7 +207,6 @@ div.slidecontainer {
 </div>
 <div id='information'>
      <p style="text-align:center;"> This dashboard is based on survey that </p>
-     <p style="text-align:center;" id="stats"></p>
 </div>
 <div class="center">
   <input id="year2020"
@@ -215,26 +214,29 @@ div.slidecontainer {
            	type="button" autofocus
 		class="button-1"	   
            	value="Show Oldest Data"
-	 	onclick="clear();showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');clear();" />
+	 	onclick="clear();showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');" />
 		   
 	<input id="year2022"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
            value="Show Latest Data"
-	   onclick="clear();showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');clear();" />
+	   onclick="clear();showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');" />
 	
 	<input id="allYear"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
-           value="Compare All Years"
+           value="Average All Years"
 	   onclick="clear();" />
 </div>
-<br>
+<div>
+	<p style="text-align:center;" id="stats"></p>
+</div>
 <div class="__range __range-step">
-	<label for="Years">Choose a year:</label>
-        <input id = "Years" value="2020" type="range" max="2022" min="2020" step="1" list="ticks1">
+	<label for="yearRange">Select a year:</label>
+        <input id = "yearRange" value="2020" type="range" max="2022" min="2020" step="1" list="ticks1">
+	<output id="showyear" name="year" for="yearRange">2020</output>
         <datalist id="ticks1">
 		 <option value="2020">2020</option>
 		 <option value="2021">2021</option>
@@ -281,7 +283,7 @@ div.slidecontainer {
 
     function selectSlider(slideryear){
 	    //year = slider.value.toString();
-	    document.getElementById("Years").value = slideryear; //yearRange
+	    document.getElementById("yearRange").value = slideryear;
 	    //document.getElementById("defaultYear").innerHTML = slideryear;
 	    document.getElementById("showyear").value = slideryear;
     }
