@@ -203,7 +203,7 @@ div.slidecontainer {
 	    
 	    clearData();
 	    
-	    changeInfo(year);
+	    changeInfo(this.value.toString());
 	    showData(this.value.toString());
 	    showBar(this.value.toString());
     }
@@ -214,7 +214,6 @@ div.slidecontainer {
     }
 
     function showDatabyLevel(){
-	    console.log("hello");
 	    var chk = document.getElementById("slidercontainer");
 	    year = slider.value.toString();
 
