@@ -147,7 +147,7 @@ div.slidecontainer {
            type="button"
 	   class="button-1"
            value="Compare All Years"
-	   onclick="clearData();" />
+	   onclick="clearData();clearSlider();" />
 </div>
 <br>
 <div id = "filters">
@@ -181,6 +181,10 @@ div.slidecontainer {
     	d3.selectAll(".node").remove();
 	d3.selectAll(".legend").remove();
 	d3.selectAll("rect").remove();
+    }
+    
+    function clearSlider() {
+	document.getElementById("yearRange").remove();
     }
 	
     // Update the current slider value (each time you drag the slider handle)
