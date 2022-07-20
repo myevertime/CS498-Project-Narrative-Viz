@@ -395,7 +395,7 @@ div.slidecontainer {
 		.transition()
 		.duration(800)
 		.attr("r", function(d) {return d.r;})
-		.style("fill", function(d) { return selectColor(d.job_title); }) // color(d.job_title)
+		.style("fill", function(d) { return selectColor(d.data.job_title); }) // color(d.job_title)
 		.delay(function(d,i){return( i * 50)});
 
 		
