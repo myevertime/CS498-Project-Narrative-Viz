@@ -212,15 +212,17 @@ div.slidecontainer {
     }
 
     function selectSlider(slideryear){
-	    //year = slider.value.toString();
 	    document.getElementById("yearRange").value = slideryear;
-	    //document.getElementById("defaultYear").innerHTML = slideryear;
 	    document.getElementById("showyear").value = slideryear;
     }
 
     function showDatabyLevel(){
-	    //document.getElementById(year).click();
-	    year = slider.value.toString();
+	    var chk = document.getElementById("slidercontainer");
+  	    if (chk.style.display === "inline") {
+    		year = slider.value.toString();
+  	    } else {
+    		year = "all";
+	    }	
 	    
 	    clearData();
 	    
@@ -406,7 +408,7 @@ div.slidecontainer {
 		console.log(year);
 		console.log(level);
 		
-		var color = d3.scaleOrdinal(["#RRGGBB", "#B0C4DE", "#1E90FF", "#6495ED", "#4682B4", "#4169E1", "#0000FF", "#0000CD", "#00008B", "#000080", "#B0E0E6", "#ADD8E6", "#87CEFA", "#87CEEB", "#00BFFF"])
+		var color = d3.scaleOrdinal(["#fffafa", "#c0c4fd", "#828af5", "#1b28cc", "#000caf"])
 
     		d3.csv(File, function(d) {
   			d.pct = +d["count"];
