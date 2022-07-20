@@ -68,17 +68,18 @@ $(".button-1").click(function(){ // when any button is clicked
 }
 .filters{
 	width: 100%;
+	display:inline;
 }
 .filter{
-	width: 50%;
+	width: 100%;
 	float: left;
 }
 /* slider css style - https://www.w3schools.com/howto/howto_js_rangeslider.asp */	
 div.slidecontainer {
 	/*position: fixed;*/
 	/*bottom: 0;*/
-	display:inline-block;
-	width: 50%; /* Width of the outside container */
+	display:inline;
+	width: 100%; /* Width of the outside container */
 	float: right;
 }
 /* The slider itself */
@@ -114,7 +115,7 @@ div.slidecontainer {
 }
 </style>
 
-<body style="width:1850px;">
+<body style="width:1800px;">
 <div id='introduction'>
       <p style="text-align:center;"><img src="image/free-icon-data-analysis-1643996.png" alt="icon image" style="height:50px;"></p>
       <h2 style="text-align:center">SALARY INFORMATION OF DATA SCIENTISTS</h2>
@@ -330,7 +331,7 @@ div.slidecontainer {
 
 		legend.append("circle") //rect
 		.attr("cx", 0) 
-		.attr("cy", function(d, i) { return 40 * i; }) //20
+		.attr("cy", function(d, i) { return 25 * i; }) //20
 		.attr("r", 10)
 		.style("fill", function(d) { return color(d.job_title)});
 
