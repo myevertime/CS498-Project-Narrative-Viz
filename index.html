@@ -112,92 +112,6 @@ div.slidecontainer {
   background: #04AA6D; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
-.__range input
-{
-  outline: none;
-	-webkit-appearance: none;
-	background-color: #aaa;
-	height: 3px;
-	width: 100%;
-	margin: 10px auto;
-}
-.__range input::-webkit-slider-thumb
-{
-	-webkit-appearance: none;
-	width: 20px;
-	height: 20px;
-	background-color: green;
-	border-radius: 50%;
-	cursor: -moz-grab;
-	cursor: -webkit-grab; 
-}            
-.__range input::-moz-range-thumb
-{
-	-webkit-appearance: none;
-	width: 20px;
-	height: 20px;
-	background-color: green;
-	border-radius: 50%;
-	cursor: -moz-grab;
-	cursor: -webkit-grab; 
-}
-.__range input::-ms-thumb
-{
-	-webkit-appearance: none;
-	width: 20px;
-	height: 20px;
-	background-color: green;
-	border-radius: 50%;
-	cursor: -moz-grab;
-	cursor: -webkit-grab; 
-}
-.__range-step{
-	position: relative;                
-}
-
-.__range-max{
-	float: right;
-}
-.__range-step input::-webkit-slider-thumb
-{
-	background: transparent;
-}            
-.__range-step input::-moz-range-thumb
-{
-	background: transparent;
-}
-.__range-step input::-ms-thumb
-{
-	background: transparent;
-}
-.__range-step datalist {
-	position:relative;
-	display: flex;
-	justify-content: space-between;
-	height: auto;
-	bottom: 16px;
-	/* disable text selection */
-	-webkit-user-select: none; /* Safari */        
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+/Edge */                
-	user-select: none; /* Standard */
-	/* disable click events */
-	pointer-events:none;  
-}
-.__range-step datalist option {
-	width: 10px;
-	height: 10px;
-	min-height: 10px;
-	border-radius: 100px;
-	/* hide text */
-	white-space: nowrap;       
-  padding:0;
-  line-height: 40px;
-}
-.__range-step{
-  margin:0 40px;
-}
-
 </style>
 
 <body style="width:1700px;">
@@ -207,6 +121,7 @@ div.slidecontainer {
 </div>
 <div id='information'>
      <p style="text-align:center;"> This dashboard is based on survey that </p>
+     <p style="text-align:center;" id="stats"></p>
 </div>
 <div class="center">
   <input id="year2020"
@@ -227,43 +142,39 @@ div.slidecontainer {
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
-           value="Average All Years"
+           value="Compare All Years"
 	   onclick="clear();" />
 </div>
-<div>
-	<p style="text-align:center;" id="stats"></p>
-</div>
-<div class="__range __range-step">
-	<label for="yearRange">Select a year:</label>
-        <input id = "yearRange" value="2020" type="range" max="2022" min="2020" step="1" list="ticks1">
+<br>
+<div id = "filters">
+	<div class="slidecontainer">
+	<label for="exp-yearRange">Select a year:</label>
+  	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
 	<output id="showyear" name="year" for="yearRange">2020</output>
-        <datalist id="ticks1">
-		 <option value="2020">2020</option>
-		 <option value="2021">2021</option>
-		 <option value="2022">2022</option>
-        </datalist>
-</div>
-<div class="filter">
-	<label for="exp-levels">Choose an experiment level:</label>
-	<select name="exp-levels" id="exp-levels" onchange="showDatabyLevel()">
-    	<option value="all">All</option>
-  	<option value="EN">Entry-level/Junior</option>
-  	<option value="MI">Mid-level/Intermediate</option>
-  	<option value="SE">Senior-level/Expert</option>
-	</select>
+	</div>
+	<div class="filter">
+		<label for="exp-levels">Choose an experiment level:</label>
+		<select name="exp-levels" id="exp-levels" onchange="showDatabyLevel()">
+    		<option value="all">All</option>
+  		<option value="EN">Entry-level/Junior</option>
+  		<option value="MI">Mid-level/Intermediate</option>
+  		<option value="SE">Senior-level/Expert</option>
+		</select>
+	</div>
 </div>
 <svg width=2000 height=1200></svg>
 <script>
     var year;
     document.getElementById("year2020").click();
 
-    var slider = document.getElementById("Years");
+    var slider = document.getElementById("yearRange");
     //var output = document.getElementById("defaultYear");
     //output.innerHTML = slider.value; // Display the default slider value
     //console.log(slider.value);
 
     function clear() {
 	d3.selectAll("circle").remove();
+	console.log("work?");
     	d3.selectAll(".node").remove();
 	d3.selectAll(".legend").remove();
 	d3.selectAll("rect").remove();
@@ -428,8 +339,8 @@ div.slidecontainer {
 
 		legend.append("circle") //rect
 		.attr("cx", 0) 
-		.attr("cy", function(d, i) { return 20 * i; }) //20
-		.attr("r", 5)
+		.attr("cy", function(d, i) { return 25 * i; }) //20
+		.attr("r", 10)
 		.style("fill", function(d) { return color(d.job_title)});
 
 
@@ -537,11 +448,3 @@ div.slidecontainer {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
