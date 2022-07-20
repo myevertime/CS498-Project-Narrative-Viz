@@ -172,16 +172,10 @@ div.slidecontainer {
     document.getElementById("year2020").click();
 
     var slider = document.getElementById("yearRange");
-    //var output = document.getElementById("defaultYear");
-    //output.innerHTML = slider.value; // Display the default slider value
-    //console.log(slider.value);
 
     function clearData() {
-	//d3.selectAll("circle").remove();
-    	//d3.selectAll(".node").remove();
-	//d3.selectAll(".legend").remove();
 	d3.selectAll("#bubble").remove();
-	d3.selectAll("rect").remove();
+	d3.selectAll("#bar").remove();
     }
     
     function clearSlider() {
@@ -407,6 +401,7 @@ div.slidecontainer {
 			var div = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 			
 			var svg2 = d3.select("svg").append("g") //.select("body").append("svg")
+				.attr("id","bar")
 				.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+margin) + ")")
 				.selectAll()
 				.data(data)
