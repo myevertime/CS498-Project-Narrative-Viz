@@ -230,12 +230,54 @@ div.slidecontainer {
 	    showData(year);
 	    showBar(year);
     }
+    function selectColor(jobTitle){
+    	var color_lst = {'Director of Data Science': 'FF0000',
+ 	'Machine Learning Scientist': '00FF00',
+ 	'Research Scientist': '0000FF',
+ 	'Data Science Manager': 'FFFF00',
+ 	'Lead Data Scientist': 'FF00FF',
+ 	'Principal Data Scientist': '00FFFF',
+ 	'Machine Learning Engineer': '000000',
+ 	'Business Data Analyst': '800000',
+ 	'Machine Learning Manager': '008000',
+ 	'BI Data Analyst': '000080',
+ 	'Big Data Engineer': '808000',
+ 	'Lead Data Engineer': '800080',
+ 	'Data Engineer': '008080',
+ 	'Lead Data Analyst': '808080',
+ 	'Data Scientist': 'C00000',
+ 	'Data Engineering Manager': '00C000',
+ 	'Computer Vision Engineer': '0000C0',
+ 	'Data Science Consultant': 'C0C000',
+ 	'Machine Learning Infrastructure Engineer': 'C000C0',
+ 	'Financial Data Analyst': '00C0C0',
+ 	'Principal Data Engineer': 'C0C0C0',
+ 	'Applied Machine Learning Scientist': '400000',
+ 	'Head of Data': '004000',
+ 	'Principal Data Analyst': '000040',
+ 	'ML Engineer': '404000',
+ 	'Data Architect': '400040',
+ 	'Data Specialist': '004040',
+ 	'Director of Data Engineering': '404040',
+ 	'Data Analytics Manager': '200000',
+ 	'Cloud Data Engineer': '002000',
+ 	'Staff Data Scientist': '000020',
+ 	'Data Analytics Lead': '202000',
+ 	'Applied Data Scientist': '200020',
+ 	'Head of Data Science': '002020',
+ 	'Analytics Engineer': '202020',
+	 'AI Scientist': '600060',
+	 'Computer Vision Software Engineer': '006060',
+	 'Data Analyst': '606060',
+	 'machine learning developer': '606000'}
+	return color_lst[jobTitle];
+    }
     function changeInfo(year){
     	if (year == "2020"){
 		var count = 2628
 		var avg = 95813
 		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
-		return ["#ABD3DB", "#D9BCF2", "#F2C879", "#E5F5DC", "#FFFFE1", "#F2D0D9", "#F2F2F2", "#B8C6D9", "#8596A6", "#F2D9D0"];
+		//return ["#ABD3DB", "#D9BCF2", "#F2C879", "#E5F5DC", "#FFFFE1", "#F2D0D9", "#F2F2F2", "#B8C6D9", "#8596A6", "#F2D9D0"];
 		
 	}
 	else if (year == "2021"){
@@ -243,21 +285,21 @@ div.slidecontainer {
 		var avg = 99853
 		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
 		
-		return ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0'];
+		//return ['#fbb4ae','#FFFFE1','#ccebc5','#decbe4','#fed9a6', '#ffe9a8','#F0F2F2','#fddaec', '#F2D9D0', '#F2D9D0'];
 	}
 	else if (year=='2022'){
 		var count = 142623
 		var avg = 124522
 		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
 		
-		return ["#A9B5D9", "#F2A477", "#A0B392", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"];
+		//return ["#A9B5D9", "#F2A477", "#A0B392", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"];
 	}
 	else {
 		var count = 184528
 		var avg = 112297
 		document.getElementById('stats').innerText = "The number of surveys in total is " + count + " and the average salary value is " + avg + "."
 		
-		return ["#A9B5D9", "#F2A477", "#A0B392", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"];
+		//return ["#A9B5D9", "#F2A477", "#A0B392", "#F2C4C4", "#F2F2F2", "#5F9595", "#F0BC68", "#C4D7D1", "#F5D1C3", "#FFB6A3"];
 	}
 	
     }
@@ -323,7 +365,7 @@ div.slidecontainer {
 		node.append("circle")
 		.attr("id", function(d) { return d.id; })
 		.attr("r", function(d) { return 0; }) //d.r;
-		.style("fill", function(d) { return color(d.data.job_title); })
+		.style("fill", function(d) { return color_lst(d.data.job_title); }) //color(d.data.job_title)
 		.on("mouseover", function(d) {		
 			div.transition()		
 			.duration(200)		
@@ -378,7 +420,7 @@ div.slidecontainer {
 		.attr("cx", 0) 
 		.attr("cy", function(d, i) { return 5 + 20 * i; }) //20
 		.attr("r", 7)
-		.style("fill", function(d) { return color(d.job_title)});
+		.style("fill", function(d) { return color_lst(d.data.job_title)});  //color(d.job_title)
 
 
 		legend.append("text")
