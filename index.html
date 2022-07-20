@@ -140,6 +140,10 @@ div.slidecontainer {
 </div>
 <br>
 <div id = "filters">
+	<div class="slidecontainer">
+  	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
+	<output id="showyear" name="year" for="yearRange">2020</output>
+	</div>
 	<div class="filter">
 		<label for="exp-levels">Choose an experiment level:</label>
 		<select name="exp-levels" id="exp-levels" onchange="showDatabyLevel()">
@@ -148,11 +152,6 @@ div.slidecontainer {
   		<option value="MI">Mid-level/Intermediate</option>
   		<option value="SE">Senior-level/Expert</option>
 		</select>
-	</div>
-	
-	<div class="slidecontainer">
-  	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
-	<output id="showyear" name="year" for="yearRange">2020</output>
 	</div>
 </div>
 <svg width=2000 height=1200></svg>
