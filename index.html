@@ -112,6 +112,92 @@ div.slidecontainer {
   background: #04AA6D; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+.__range input
+{
+  outline: none;
+	-webkit-appearance: none;
+	background-color: #aaa;
+	height: 3px;
+	width: 100%;
+	margin: 10px auto;
+}
+.__range input::-webkit-slider-thumb
+{
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	background-color: green;
+	border-radius: 50%;
+	cursor: -moz-grab;
+	cursor: -webkit-grab; 
+}            
+.__range input::-moz-range-thumb
+{
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	background-color: green;
+	border-radius: 50%;
+	cursor: -moz-grab;
+	cursor: -webkit-grab; 
+}
+.__range input::-ms-thumb
+{
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	background-color: green;
+	border-radius: 50%;
+	cursor: -moz-grab;
+	cursor: -webkit-grab; 
+}
+.__range-step{
+	position: relative;                
+}
+
+.__range-max{
+	float: right;
+}
+.__range-step input::-webkit-slider-thumb
+{
+	background: transparent;
+}            
+.__range-step input::-moz-range-thumb
+{
+	background: transparent;
+}
+.__range-step input::-ms-thumb
+{
+	background: transparent;
+}
+.__range-step datalist {
+	position:relative;
+	display: flex;
+	justify-content: space-between;
+	height: auto;
+	bottom: 16px;
+	/* disable text selection */
+	-webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */                
+	user-select: none; /* Standard */
+	/* disable click events */
+	pointer-events:none;  
+}
+.__range-step datalist option {
+	width: 10px;
+	height: 10px;
+	min-height: 10px;
+	border-radius: 100px;
+	/* hide text */
+	white-space: nowrap;       
+  padding:0;
+  line-height: 40px;
+}
+.__range-step{
+  margin:0 40px;
+}
+
 </style>
 
 <body style="width:1800px;">
@@ -147,9 +233,13 @@ div.slidecontainer {
 </div>
 <br>
 <div id = "filters">
-	<div class="slidecontainer">
-  	<input type="range" min="2020" max="2022" value="2020" class="slider" id="yearRange">
-	<output id="showyear" name="year" for="yearRange">2020</output>
+	<div class="__range __range-step">
+        	<input value="2020" type="range" max="2022" min="2020" step="1" list="ticks1">
+        	<datalist id="ticks1">
+		  <option value="2020">2020</option>
+		  <option value="2021">2021</option>
+		  <option value="2022">2022</option>
+        	</datalist>
 	</div>
 	<div class="filter">
 		<label for="exp-levels">Choose an experiment level:</label>
