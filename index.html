@@ -176,6 +176,8 @@ div.slidecontainer {
     function clearData() {
 	d3.selectAll("#bubble").remove();
 	d3.selectAll("#bar").remove();
+	d3.selectAll("#xaxis").remove();
+	d3.selectAll("#yaxis").remove();
     }
     
     function clearSlider() {
@@ -431,6 +433,7 @@ div.slidecontainer {
 
 			// X axis
 			d3.select("svg").append("g")
+			.attr("id","xaxis")
 			.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+height2+margin) + ")")
 			.call(d3.axisBottom(x))
 			.selectAll("text")
@@ -439,6 +442,7 @@ div.slidecontainer {
 
 			// Y axis
 			d3.select("svg").append("g")
+			.attr("id","yaxis")
 			.attr("transform", "translate(" + (upperchart_width+margin) + "," + (upperchart_height+margin) + ")")
 			.call(d3.axisLeft(y))
 			.style("font-size",8);
