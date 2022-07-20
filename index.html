@@ -124,7 +124,9 @@ div.slidecontainer {
       <h2 style="text-align:center">SALARY INFORMATION OF DATA SCIENTISTS</h2>
 </div>
 <div id='information'>
-     <p style="text-align:center;">This dashboard shows a variety of jobs in data science and salary information based on a survey dataset. You can filter scenes by changing years from 2020 up to 2022 and experience levels as well. See the trends of data science by year. </p>
+     <p style="text-align:center;">This dashboard shows a variety of jobs in data science and salary information based on a survey dataset.</p>
+     <p style="text-align:center;">You can filter scenes by changing years from 2020 up to 2022 and experience levels as well.</p>
+     <p style="text-align:center;">See the trends of data science by year. </p>
      <p style="text-align:center;" id="stats"></p>
 </div>
 <div class="center">
@@ -278,7 +280,9 @@ div.slidecontainer {
     	if (year == "2020"){
 		var count = 2628
 		var avg = 95813
-		document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
+		//document.getElementById('stats').innerText = "The number of participants in " + year + " is " + count + " and their average salary value is " + avg + "."
+		('#stats').html("first"+"<br />"+"second")
+		
 		//return ["#ABD3DB", "#D9BCF2", "#F2C879", "#E5F5DC", "#FFFFE1", "#F2D0D9", "#F2F2F2", "#B8C6D9", "#8596A6", "#F2D9D0"];
 		
 	}
