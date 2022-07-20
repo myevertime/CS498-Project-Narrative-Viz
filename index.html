@@ -128,19 +128,19 @@ div.slidecontainer {
      <p style="text-align:center;" id="stats"></p>
 </div>
 <div class="center">
-  <input id="year2020"
+  <input id="2020"
 	 name="updateButton1" 
            	type="button" autofocus
 		class="button-1"	   
            	value="Show Oldest Data"
-	 	onclick="clearData();showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');" />
+	 	onclick="setSlider();clearData();showData('2020');selectSlider(2020);showBar('2020');changeInfo('2020');" />
 		   
-	<input id="year2022"
+	<input id="2022"
 	   name="updateButton3" 
            type="button"
 	   class="button-1"
            value="Show Latest Data"
-	   onclick="clearData();showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');" />
+	   onclick="setSlider();clearData();showData('2022');selectSlider(2022);showBar('2022');changeInfo('2022');" />
 	
 	<input id="compareyear"
 	   name="updateButton3" 
@@ -169,7 +169,7 @@ div.slidecontainer {
 <svg width=1800 height=1200></svg>
 <script>
     var year;
-    document.getElementById("year2020").click();
+    document.getElementById("2020").click();
 
     var slider = document.getElementById("yearRange");
 
@@ -180,7 +180,11 @@ div.slidecontainer {
     
     function clearSlider() {
 	document.getElementById('sliderlabel').innerHTML = 'Average Up To 2022';
-	document.getElementById("year2022").click();
+	document.getElementById("2022").click();
+    }
+    
+    function setSlider() {
+	document.getElementById('sliderlabel').innerHTML = 'Select a year:';
     }
 	
     // Update the current slider value (each time you drag the slider handle)
