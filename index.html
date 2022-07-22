@@ -531,30 +531,87 @@ div.slidecontainer {
 			.attr("height", function(d) {return height2 - y(d.pct);})
 			.delay(function(d,i){return( i * 50)})
 			
-			// Features of the annotation
-			const annotations = [
-			  {
-			    note: {
-			      label: "This is the maximum range",
-			      title: "The Maximum Rnage",
-			      align: "middle",  // try right or left
-			      wrap: 200,  // try something smaller to see text split in several lines
-			      padding: 10   // More = text lower
-			    },
-			    color: ["#69b3a2"],
-			    x: 800,
-			    y: 200,
-			    dy: 100,
-			    dx: 100
-			  }
-			]
-			// Add annotation to the chart
-			const makeAnnotations = d3.annotation()
-			  .annotations(annotations)
-			d3.select("#bar")
-			  .append("g")
-			  .call(makeAnnotations)
-			});
+			if (year === '2020' && level === 'all' ){
+			
+				// Features of the annotation
+				const annotations = [
+				  {
+				    note: {
+				      label: "32,000~62,000 Range counts for 30% in 2020",
+				      title: "The Maximum Rnage",
+				      align: "middle",  // try right or left
+				      wrap: 200,  // try something smaller to see text split in several lines
+				      padding: 10   // More = text lower
+				    },
+				    color: ["#69b3a2"],
+				    x: 600,
+				    y: 200,
+				    dy: 100,
+				    dx: 100
+				  }
+				]
+				// Add annotation to the chart
+				const makeAnnotations = d3.annotation()
+				  .annotations(annotations)
+				d3.select("#bar")
+				  .append("g")
+				  .call(makeAnnotations)
+				});
+			}
+		       else if (year === '2021' && level === 'all') {
+		       
+		       	// Features of the annotation
+				const annotations = [
+				  {
+				    note: {
+				      label: "62,000~92,000 Range counts for 23% in 2021. The maximum range increased compared to 2020.",
+				      title: "The Maximum Rnage",
+				      align: "middle",  // try right or left
+				      wrap: 200,  // try something smaller to see text split in several lines
+				      padding: 10   // More = text lower
+				    },
+				    color: ["#69b3a2"],
+				    x: 650,
+				    y: 200,
+				    dy: 100,
+				    dx: 100
+				  }
+				]
+				// Add annotation to the chart
+				const makeAnnotations = d3.annotation()
+				  .annotations(annotations)
+				d3.select("#bar")
+				  .append("g")
+				  .call(makeAnnotations)
+				});
+		       }
+		       else if (year === '2022' && level === 'all) {
+		       		// Features of the annotation
+				const annotations = [
+				  {
+				    note: {
+				      label: "92,000~122,000 Range counts for 20% in 2022. The maximum range increased compared to 2020 and 2021.",
+				      title: "The Maximum Rnage",
+				      align: "middle",  // try right or left
+				      wrap: 200,  // try something smaller to see text split in several lines
+				      padding: 10   // More = text lower
+				    },
+				    color: ["#69b3a2"],
+				    x: 700,
+				    y: 200,
+				    dy: 100,
+				    dx: 100
+				  }
+				]
+				// Add annotation to the chart
+				const makeAnnotations = d3.annotation()
+				  .annotations(annotations)
+				d3.select("#bar")
+				  .append("g")
+				  .call(makeAnnotations)
+				});
+			}
+			else { }
 
 	} //showBar End
 </script>
