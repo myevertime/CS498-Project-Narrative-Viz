@@ -530,7 +530,28 @@ div.slidecontainer {
 			.attr("y", function(d) {return y(d.pct);})
 			.attr("height", function(d) {return height2 - y(d.pct);})
 			.delay(function(d,i){return( i * 50)})
-		});
+			
+			// Features of the annotation
+			const annotations = [
+			  {
+			    note: {
+			      label: "This year ",
+			      title: "Max Value"
+			    },
+			    x: 800,
+			    y: 1000,
+			    dy: 100,
+			    dx: 100
+			  }
+			]
+
+			// Add annotation to the chart
+			const makeAnnotations = d3.annotation()
+			  .annotations(annotations)
+			d3.select("#bar")
+			  .append("g")
+			  .call(makeAnnotations)
+			});
 
 	} //showBar End
 </script>
