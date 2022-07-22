@@ -535,16 +535,19 @@ div.slidecontainer {
 			const annotations = [
 			  {
 			    note: {
-			      label: "This year ",
-			      title: "Max Value"
+			      label: "This is the maximum range",
+			      title: "The Maximum Rnage",
+			      align: "middle",  // try right or left
+			      wrap: 200,  // try something smaller to see text split in several lines
+			      padding: 10   // More = text lower
 			    },
+			    color: ["#69b3a2"],
 			    x: 800,
-			    y: 1000,
+			    y: 200,
 			    dy: 100,
 			    dx: 100
 			  }
 			]
-
 			// Add annotation to the chart
 			const makeAnnotations = d3.annotation()
 			  .annotations(annotations)
